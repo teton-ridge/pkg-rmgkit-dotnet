@@ -1,0 +1,3 @@
+is_global = true
+build_property.RootNamespace = RMGKit
+build_property.ProjectDir = /Users/ericpreston/Projects/rmg-libs/rmgkit-dotnet/RMGKit/
