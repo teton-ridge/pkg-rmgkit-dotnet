@@ -7,17 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Modals\" />
-    <None Remove="Modals\Account\" />
-    <None Remove="Modals\Athlete\" />
-    <None Remove="Modals\Common\" />
-    <None Remove="Modals\Event\" />
-    <None Remove="Modals\Media\" />
-    <None Remove="Modals\Navigation\" />
-    <None Remove="Modals\News\" />
-    <None Remove="Modals\Schedule\" />
     <None Remove="Modals\Standibng\" />
-    <None Remove="Modals\Rodeo\" />
     <None Remove="Request\" />
     <None Remove="Flurl.Http" />
     <None Remove="Models\Common\" />
@@ -32,17 +22,6 @@
     <None Remove="Models\Schedule\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Modals\" />
-    <Folder Include="Modals\Account\" />
-    <Folder Include="Modals\Athlete\" />
-    <Folder Include="Modals\Common\" />
-    <Folder Include="Modals\Event\" />
-    <Folder Include="Modals\Media\" />
-    <Folder Include="Modals\Navigation\" />
-    <Folder Include="Modals\News\" />
-    <Folder Include="Modals\Schedule\" />
-    <Folder Include="Modals\Standing\" />
-    <Folder Include="Modals\Rodeo\" />
     <Folder Include="Request\" />
     <Folder Include="Models\Common\" />
     <Folder Include="Models\News\" />
