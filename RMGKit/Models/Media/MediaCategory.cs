@@ -21,44 +21,44 @@ namespace RMGKit.Models.Media
 		[DataMember(Name = "title")]
 		public string? Title { get; set; }
 
-		[DataMember(Name = "shows")]
-		public ShowList? Shows { get; set; }
+        [DataMember(Name = "shows")]
+        public ShowList? Shows { get; set; }
 
-		[DataMember(Name = "episodes")]
-		public MediaItemList? MediaItems { get; set; }
+        [DataMember(Name = "episodes")]
+        public MediaItemList? MediaItems { get; set; }
 
-		#endregion
+        #endregion
 
-		#region Methods
+        #region Methods
 
-		/// <summary>
-		/// Indicates the number of shows available.
-		/// </summary>
-		/// <returns></returns>
-		public int ShowCount()
+        /// <summary>
+        /// Indicates the number of shows available.
+        /// </summary>
+        /// <returns></returns>
+        public int ShowCount()
         {
-			return this.Shows?.Count ?? 0;
+            return this.Shows?.Count ?? 0;
         }
 
-		/// <summary>
-		/// Indicates the number of media items available.
-		/// </summary>
-		/// <returns></returns>
-		public int MediaItemCount()
-		{
-			return this.MediaItems?.Count ?? 0;
-		}
-
-		/// <summary>
-		/// Indicates if any media items are available.
-		/// </summary>
-		/// <returns></returns>
-		public bool HasMediaItems()
+        ///// <summary>
+        ///// Indicates the number of media items available.
+        ///// </summary>
+        ///// <returns></returns>
+        public int MediaItemCount()
         {
-			return this.MediaItems != null;
+            return this.MediaItems?.Count ?? 0;
         }
 
-		#endregion
-	}
+        ///// <summary>
+        ///// Indicates if any media items are available.
+        ///// </summary>
+        ///// <returns></returns>
+        public bool HasMediaItems()
+        {
+            return this.MediaItems != null;
+        }
+
+        #endregion
+    }
 }
 

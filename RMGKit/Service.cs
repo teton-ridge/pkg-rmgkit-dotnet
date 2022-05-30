@@ -25,6 +25,37 @@ namespace RMGKit
 		public Service() { }
 
 		/// <summary>
+		/// Convenience constructor.
+		/// </summary>
+		/// <param name="apiUrl">The api connection's base url (e.g. https://mapi.rfdtv.com).</param>
+		/// <param name="authCode">The api connection authentication code.</param>
+		/// <param name="authKey">The api connection authentication key.</param>
+		/// <param name="appIdentifier">Friendly name that identifies the calling application.</param>
+		/// <param name="appVersion">Friendly version string of the calling application in the format PLATFORM SHORT_VER (e.g. iOS 2.0).</param>
+		/// <param name="currentUser">The idendifier or the current user; if any.</param>
+		/// <param name="currentDeviceToken">The push notification token of the current device; if any.</param>
+		/// <param name="endpointOverrides">Overrides for api endpoints. e.g. ["/news": "v6"].</param>
+		public Service(
+			string apiUrl,
+			string authCode,
+			string authKey,
+			string appIdentifier,
+			string appVersion,
+			string? currentUser = null,
+			string? currentDeviceToken = null,
+			Dictionary<string, string>? endpointOverrides = null)
+		{
+			this.apiUrl = apiUrl;
+			this.authenticationCode = authCode;
+			this.authenticationKey = authKey;
+			this.applicationIdentifier = appIdentifier;
+			this.applicationVersion = appVersion;
+			this.currentUser = currentUser;
+			this.currentDeviceToken = currentDeviceToken;
+			this.endpointVersionOverrides = endpointOverrides;
+		}
+
+		/// <summary>
 		/// Shared singleton instance of api service.
 		/// </summary>
 		public static Service shared
@@ -183,7 +214,9 @@ namespace RMGKit
 						.GetJsonAsync<T>();
 					return resp;
 				}
-				catch { return null; }
+				catch(Exception ex) {
+					return null;
+				}
 
 			}
 		}

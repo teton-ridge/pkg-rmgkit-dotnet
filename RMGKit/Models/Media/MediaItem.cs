@@ -61,7 +61,7 @@ namespace RMGKit.Models.Media
 		public string? PlaybackURL { get; set; }
 
 		[DataMember(Name = "duration_in_seconds")]
-		public int? DurationInSeconds { get; set; }
+		public double? DurationInSeconds { get; set; }
 
 		[DataMember(Name = "is_drm")]
 		public int? Drm { get; set; }
