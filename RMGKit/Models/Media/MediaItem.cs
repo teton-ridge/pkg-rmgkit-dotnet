@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 using System.Collections.Generic;
 
 namespace RMGKit.Models.Media
@@ -7,7 +7,6 @@ namespace RMGKit.Models.Media
 	/// <summary>
 	/// Represents a specific media item.
 	/// </summary>
-    [DataContract]
 	public class MediaItem
 	{
 		/// <summary>
@@ -39,43 +38,43 @@ namespace RMGKit.Models.Media
 
 		#region Properties
 
-		[DataMember(Name = "media_id")]
+		[JsonPropertyName("media_id")]
 		public int Id { get; set; }
 
-		[DataMember(Name = "external_id")]
+		[JsonPropertyName("external_id")]
 		public string? ExternalId { get; set; }
 
-		[DataMember(Name = "source")]
+		[JsonPropertyName("source")]
 		public SourceType Source { get; set; }
 
-		[DataMember(Name = "title")]
+		[JsonPropertyName("title")]
 		public string? Title { get; set; }
 
-		[DataMember(Name = "summary")]
+		[JsonPropertyName("summary")]
 		public string? Summary { get; set; }
 
-		[DataMember(Name = "thumbnail_url")]
+		[JsonPropertyName("thumbnail_url")]
 		public string? ImageURL { get; set; }
 
-		[DataMember(Name = "playback_url")]
+		[JsonPropertyName("playback_url")]
 		public string? PlaybackURL { get; set; }
 
-		[DataMember(Name = "duration_in_seconds")]
+		[JsonPropertyName("duration_in_seconds")]
 		public double? DurationInSeconds { get; set; }
 
-		[DataMember(Name = "is_drm")]
+		[JsonPropertyName("is_drm")]
 		public int? Drm { get; set; }
 
-		[DataMember(Name = "premium")]
+		[JsonPropertyName("premium")]
 		public int? Premium { get; set; }
 
-		[DataMember(Name = "metadata")]
+		[JsonPropertyName("metadata")]
 		public List<string>? MetaData { get; set; }
 
-		[DataMember(Name = "tags")]
+		[JsonPropertyName("tags")]
 		public List<string>? Tags { get; set; }
 
-		[DataMember(Name = "ad_tag")]
+		[JsonPropertyName("ad_tag")]
 		public string? AdTag { get; set; }
 
 		#endregion

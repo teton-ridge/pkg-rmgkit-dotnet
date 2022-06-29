@@ -13,6 +13,7 @@ namespace RMGKit.Requests
 		public static class Endpoints
 		{
 			public static readonly string getCategories = "show/GetShows";
+			public static readonly string getShow = "show/GetShow";
 		}
 
 		public Media() { }
@@ -24,6 +25,15 @@ namespace RMGKit.Requests
 		public static Request GetCategories()
 		{
 			return new Request(Endpoints.getCategories);
+		}
+
+		/// <summary>
+		/// Builds a get media categories request.
+		/// </summary>
+		/// <returns></returns>
+		public static Request GetShow(int showId)
+		{
+			return new Request(Endpoints.getShow, $"/{showId}");
 		}
 	}
 }

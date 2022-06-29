@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 using RMGKit.Models.Athlete;
 
 namespace RMGKit.Models.Standing
@@ -7,7 +7,6 @@ namespace RMGKit.Models.Standing
 	/// <summary>
 	/// Represents an individual standing within an event.
 	/// </summary>
-	[DataContract]
 	public class Standing
 	{
 		public Standing()
@@ -21,37 +20,37 @@ namespace RMGKit.Models.Standing
 
 		#region Properties
 
-		[DataMember(Name = "athlete_id")]
+		[JsonPropertyName("athlete_id")]
 		public int AthleteId { get; set; }
 
-		[DataMember(Name = "athlete_name")]
+		[JsonPropertyName("athlete_name")]
 		public string AthleteName { get; set; }
 
-		[DataMember(Name = "athlete_city")]
+		[JsonPropertyName("athlete_city")]
 		public string? AthleteCity { get; set; }
 
-		[DataMember(Name = "athlete_state")]
+		[JsonPropertyName("athlete_state")]
 		public string? AthleteState { get; set; }
 
-		[DataMember(Name = "rank")]
+		[JsonPropertyName("rank")]
 		public int Rank { get; set; }
 
-		[DataMember(Name = "earnings")]
+		[JsonPropertyName("earnings")]
 		public double Earnings { get; set; }
 
-		[DataMember(Name = "year")]
+		[JsonPropertyName("year")]
 		public int? Year { get; set; }
 
-		[DataMember(Name = "event_id")]
+		[JsonPropertyName("event_id")]
 		public int? EventId { get; set; }
 
-		[DataMember(Name = "event_name")]
+		[JsonPropertyName("event_name")]
 		public string? EventName { get; set; }
 
-		[DataMember(Name = "group_id")]
+		[JsonPropertyName("group_id")]
 		public int? GroupId { get; set; }
 
-		[DataMember(Name = "group_name")]
+		[JsonPropertyName("group_name")]
 		public string? GroupName { get; set; }
 
 		public Athlete.Athlete Athlete

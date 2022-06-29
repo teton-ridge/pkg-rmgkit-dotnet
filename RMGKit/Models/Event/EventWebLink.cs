@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace RMGKit.Models.Event
 {
 	/// <summary>
 	/// Represents web link for an event.
 	/// </summary>
-	[DataContract]
 	public class EventWebLink
 	{
 		public EventWebLink()
@@ -16,22 +15,22 @@ namespace RMGKit.Models.Event
 
 		#region Properties
 
-		[DataMember(Name = "link_type")]
+		[JsonPropertyName("link_type")]
 		public int LinkType { get; set; }
 
-		[DataMember(Name = "link_key")]
+		[JsonPropertyName("link_key")]
 		public int LinkKey { get; set; }
 
-		[DataMember(Name = "title")]
+		[JsonPropertyName("title")]
 		public string Title { get; set; }
 
-		[DataMember(Name = "url")]
+		[JsonPropertyName("url")]
 		public string? Url { get; set; }
 
-		[DataMember(Name = "image_url")]
+		[JsonPropertyName("image_url")]
 		public string? ImageUrl { get; set; }
 
-		[DataMember(Name = "requires_identity")]
+		[JsonPropertyName("requires_identity")]
 		public int? RequiresIdentity { get; set; }
 
 		/// <summary>

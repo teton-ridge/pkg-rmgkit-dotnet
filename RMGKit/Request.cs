@@ -9,8 +9,16 @@ namespace RMGKit
 	/// </summary>
 	public class Request
 	{
+		// the base end point
 		private string _endpoint = "";
+
+		// additional path info that gets attached to the endpoint
+		private string _path = "";
+
+		// the request method 
 		private HttpMethod _method = HttpMethod.Get;
+
+		// the request parameter
 		private Dictionary<string, Object>? _parameters = null;
 
 		public Request() { }
@@ -20,13 +28,19 @@ namespace RMGKit
 			this._endpoint = endpoint;
         }
 
-		public Request(string endpoint, Dictionary<string, Object>? parameters)
+		public Request(string endpoint, string path)
+		{
+			this._endpoint = endpoint;
+			this._path = path;
+		}
+
+		public Request(string endpoint, string path, Dictionary<string, Object>? parameters)
 		{
 			this._endpoint = endpoint;
 			this._parameters = parameters;
 		}
 
-		public Request(string endpoint, Dictionary<string, Object>? parameters, HttpMethod method)
+		public Request(string endpoint, string path, Dictionary<string, Object>? parameters, HttpMethod method)
 		{
 			this._endpoint = endpoint;
 			this._parameters = parameters;
@@ -39,6 +53,11 @@ namespace RMGKit
         {
 			get { return this._endpoint ?? string.Empty;  }
         }
+
+		public string Path
+		{
+			get { return this._path ?? string.Empty; }
+		}
 
 		public HttpMethod Method
         {

@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace RMGKit.Models.Media
 {
@@ -15,20 +15,20 @@ namespace RMGKit.Models.Media
 
 		#region Properties
 
-		[DataMember(Name = "season_id")]
+		[JsonPropertyName("season_id")]
 		public int Id { get; set; }
 
-		[DataMember(Name = "title")]
+		[JsonPropertyName("title")]
 		public string? Title { get; set; }
 
-		[DataMember(Name = "summary")]
+		[JsonPropertyName("summary")]
 		public string? Summary { get; set; }
 
-		[DataMember(Name = "thumb_url")]
+		[JsonPropertyName("thumb_url")]
 		public string? ImageURL { get; set; }
 
-		[DataMember(Name = "episodes")]
-		public MediaGroupList? Items{ get; set; }
+		[JsonPropertyName("episodes")]
+		public MediaItemList? Items{ get; set; }
 
 		#endregion
 

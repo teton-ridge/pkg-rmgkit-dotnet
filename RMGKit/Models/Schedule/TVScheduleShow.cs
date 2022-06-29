@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace RMGKit.Models.Schedule
 {
 	/// <summary>
 	/// Represents an individual program within the TV schedule.
 	/// </summary>
-	[DataContract]
 	public class TVScheduleShow
 	{
 		public TVScheduleShow()
@@ -18,31 +17,31 @@ namespace RMGKit.Models.Schedule
 
 		#region Properties
 
-		[DataMember(Name = "id")]
+		[JsonPropertyName("id")]
 		public string Id { get; set; }
 
-		[DataMember(Name = "title")]
+		[JsonPropertyName("title")]
 		public string Title { get; set; }
 
-		[DataMember(Name = "airdate")]
+		[JsonPropertyName("airdate")]
 		public string AirDateTS { get; set; }
 
-		[DataMember(Name = "airdate")]
+		[JsonPropertyName("airdate")]
 		public string? Season { get; set; }
 
-		[DataMember(Name = "episode")]
+		[JsonPropertyName("episode")]
 		public string? Episode { get; set; }
 
-		[DataMember(Name = "rating")]
+		[JsonPropertyName("rating")]
 		public string? Rating { get; set; }
 
-		[DataMember(Name = "tease")]
+		[JsonPropertyName("tease")]
 		public string? Tease { get; set; }
 
-		[DataMember(Name = "synopsis")]
+		[JsonPropertyName("synopsis")]
 		public string? Synopsis { get; set; }
 
-		[DataMember(Name = "thumb")]
+		[JsonPropertyName("thumb")]
 		public string? ImageUrl { get; set; }
 
         #endregion

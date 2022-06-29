@@ -1,35 +1,35 @@
 ﻿using System;
-using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace RMGKit.Models.Media
 {
 	/// <summary>
 	/// Represents a specific 'show' or collection of media item groups.
 	/// </summary>
-	[DataContract]
 	public class Show
 	{
 		public Show()
 		{
 			this.Id = 0;
+			this.Groups = new MediaGroupList();
 		}
 
 		#region Properties
 
-		[DataMember(Name = "show_id")]
+		[JsonPropertyName("show_id")]
 		public int Id { get; set; }
 
-		[DataMember(Name = "title")]
+		[JsonPropertyName("title")]
 		public string? Title { get; set; }
 
-		[DataMember(Name = "summary")]
+		[JsonPropertyName("summary")]
 		public string? Summary { get; set; }
 
-		[DataMember(Name = "thumb_url")]
+		[JsonPropertyName("thumb_url")]
 		public string? ImageURL { get; set; }
 
-		[DataMember(Name = "seasons")]
-		public MediaGroupList? Groups { get; set; }
+		[JsonPropertyName("seasons")]
+		public MediaGroupList Groups { get; set; }
 
 		#endregion
 

@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace RMGKit.Models.Standing
 {
 	/// <summary>
 	/// Represents a set of standing groups for a given year.
 	/// </summary>
-	[DataContract]
 	public class StandingGroupSet
 	{
 		public StandingGroupSet()
@@ -16,10 +15,10 @@ namespace RMGKit.Models.Standing
 
 		#region Properties
 
-		[DataMember(Name = "year")]
+		[JsonPropertyName("year")]
 		public int Year { get; set; }
 
-		[DataMember(Name = "groups")]
+		[JsonPropertyName("groups")]
 		public StandingGroupList? Groups { get; set; }
 
 		#endregion

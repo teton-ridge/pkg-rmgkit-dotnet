@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Flurl;
-using Flurl.Http;
+using RestSharp;
 
 namespace RMGKit
 {
@@ -22,7 +21,9 @@ namespace RMGKit
 		private string? currentDeviceToken;
 		private Dictionary<string, string>? endpointVersionOverrides = null; 
 
-		public Service() { }
+		public Service() {
+
+		}
 
 		/// <summary>
 		/// Convenience constructor.
@@ -179,46 +180,61 @@ namespace RMGKit
 		}
 
 		/// <summary>
-        /// Creates an api request task that returns data..
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="request"></param>
-        /// <returns></returns>
-		public async Task<T?> Fetch<T>(Request request) where T : class
+		/// Creates an api request task that returns data.
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="request"></param>
+		/// <returns></returns>
+		public Task<T?> Fetch<T>(Request request) where T : class
 		{
 			HttpMethod _method = request.Method;
-			string _url = BuildRequestURL(request.Endpoint);
+			if (request.Method == HttpMethod.Post)
+				return Post<T>(request);
+			else
+				return Get<T>(request);
+		}
+
+		#endregion
+
+		#region Requests (Private)
+
+		// perform a get request
+		private async Task<T?> Get<T>(Request request) where T : class
+		{
+			string _url = BuildRequestURL(request.Endpoint) + request.Path;
 			Dictionary<string, Object> _params = request.Parameters ?? new Dictionary<string, Object>();
 			Dictionary<string, string> _headers = DefaultRequestHeaders();
 
-			if (_method == HttpMethod.Post)
-			{
-				_headers.Add("Content-Type", "application/json");
-				try
-				{
-					T resp = await _url
-						.WithHeaders(_headers)
-						.PostJsonAsync(_params)
-						.ReceiveJson<T>();
-					return resp;
-				}
-				catch { return null; }
-			}
-			else
-			{
-				try
-				{
-					T resp = await _url
-						.WithHeaders(_headers)
-						.SetQueryParams(request.Parameters)
-						.GetJsonAsync<T>();
-					return resp;
-				}
-				catch(Exception ex) {
-					return null;
-				}
+			var client = new RestClient();
+			var restRequest = new RestSharp.RestRequest(_url, Method.Get);
 
-			}
+			restRequest.AddHeaders(_headers);
+			//restRequest.AddObject(_params);
+			// todo: need to work out how to use parameters
+
+			return await client.GetAsync<T?>(restRequest);
+		}
+
+		// perform a get request
+		private async Task<T?> Post<T>(Request request) where T : class
+		{
+			string _url = BuildRequestURL(request.Endpoint) + request.Path;
+			Dictionary<string, Object> _params = request.Parameters ?? new Dictionary<string, Object>();
+			Dictionary<string, string> _headers = DefaultRequestHeaders();
+
+			var client = new RestClient();
+			var restRequest = new RestSharp.RestRequest(_url, Method.Post);
+
+			restRequest.AddHeaders(_headers);
+			//restRequest.AddObject(_params);
+
+			// todo: need to work out how to use parameters
+			//foreach(String key in _params.Keys)
+   //         {
+			//	restRequest.AddParameter(key, _params[key], true);
+   //         }
+
+			return await client.PostAsync<T?>(restRequest);
 		}
 
         #endregion

@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 using System.Linq;
 using RMGKit.Models.Rodeo;
 
@@ -8,7 +8,6 @@ namespace RMGKit.Models.Athlete
 	/// <summary>
 	/// Represents an individual athlete.
 	/// </summary>
-	[DataContract]
 	public class Athlete
 	{
 		public Athlete()
@@ -18,37 +17,37 @@ namespace RMGKit.Models.Athlete
 
 		#region Properties
 
-		[DataMember(Name = "athlete_id")]
+		[JsonPropertyName("athlete_id")]
 		public int Id { get; set; }
 
-		[DataMember(Name = "image_url")]
+		[JsonPropertyName("image_url")]
 		public string? ImageUrl { get; set; }
 
-		[DataMember(Name = "first_name")]
+		[JsonPropertyName("first_name")]
 		public string? FirstName { get; set; }
 
-		[DataMember(Name = "last_name")]
+		[JsonPropertyName("last_name")]
 		public string? LastName { get; set; }
 
-		[DataMember(Name = "athlete_name")]
+		[JsonPropertyName("athlete_name")]
 		public string? FullName { get; set; }
 
-		[DataMember(Name = "birthday")]
+		[JsonPropertyName("birthday")]
 		public string? BirthDay { get; set; }
 
-		[DataMember(Name = "birthplace")]
+		[JsonPropertyName("birthplace")]
 		public string? BirthPlace { get; set; }
 
-		[DataMember(Name = "city")]
+		[JsonPropertyName("city")]
 		public string? City { get; set; }
 
-		[DataMember(Name = "city")]
+		[JsonPropertyName("city")]
 		public string? State { get; set; }
 
-		[DataMember(Name = "highlights")]
+		[JsonPropertyName("highlights")]
 		public string? Highlights { get; set; }
 
-		[DataMember(Name = "events")]
+		[JsonPropertyName("events")]
 		public Sports? Events { get; set; }
 
 		#endregion

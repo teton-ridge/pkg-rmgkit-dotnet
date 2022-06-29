@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 using RMGKit.Models.Navigation;
 using RMGKit.Models.Media;
 using RMGKit.Models.News;
@@ -13,7 +13,6 @@ namespace RMGKit.Models.Common
 	/// <summary>
 	/// Represents a container that may contain various types of content.
 	/// </summary>
-	[DataContract]
 	public class ContentNode
 	{
         /// <summary>
@@ -38,37 +37,37 @@ namespace RMGKit.Models.Common
 
         #region Properties
 
-        [DataMember(Name = "node_type")]
+        [JsonPropertyName("node_type")]
         public NodeType Type { get; set; }
 
-        [DataMember(Name = "module_id")]
+        [JsonPropertyName("module_id")]
         public Navigation.Action.ActionType Module { get; set; }
 
-        [DataMember(Name = "title")]
+        [JsonPropertyName("title")]
         public string? Title { get; set; }
 
-        [DataMember(Name = "link_text")]
+        [JsonPropertyName("link_text")]
         public string? LinkText { get; set; }
 
-        [DataMember(Name = "link_text")]
+        [JsonPropertyName("link_text")]
         public string? URL { get; set; }
 
-        [DataMember(Name = "media")]
+        [JsonPropertyName("media")]
         public MediaItemList? MediaItems { get; set; }
 
-        [DataMember(Name = "news")]
+        [JsonPropertyName("news")]
         public ArticleList? NewsItems { get; set; }
 
-        [DataMember(Name = "rodeos")]
+        [JsonPropertyName("rodeos")]
         public RodeoList? RodeoItems { get; set; }
 
-        [DataMember(Name = "standings")]
+        [JsonPropertyName("standings")]
         public StandingGroupSetList? StandingItems { get; set; }
 
-        [DataMember(Name = "event_links")]
+        [JsonPropertyName("event_links")]
         public EventWebLinkList? EventLinkItems { get; set; }
 
-        [DataMember(Name = "athletes")]
+        [JsonPropertyName("athletes")]
         public Athlete.AthleteList? AthleteItems { get; set; }
 
         #endregion

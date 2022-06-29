@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 using System.Linq;
 
 namespace RMGKit.Models.Event
@@ -7,7 +7,6 @@ namespace RMGKit.Models.Event
 	/// <summary>
 	/// Represents an event venue.
 	/// </summary>
-	[DataContract]
 	public class Venue
 	{
 		public Venue()
@@ -17,28 +16,28 @@ namespace RMGKit.Models.Event
 
 		#region Properties
 
-		[DataMember(Name = "id")]
+		[JsonPropertyName("id")]
 		public int Id { get; set; }
 
-		[DataMember(Name = "name")]
+		[JsonPropertyName("name")]
 		public string? Name { get; set; }
 
-		[DataMember(Name = "address")]
+		[JsonPropertyName("address")]
 		public string? StreetAddress { get; set; }
 
-		[DataMember(Name = "city")]
+		[JsonPropertyName("city")]
 		public string? City { get; set; }
 
-		[DataMember(Name = "state")]
+		[JsonPropertyName("state")]
 		public string? State { get; set; }
 
-		[DataMember(Name = "country")]
+		[JsonPropertyName("country")]
 		public string? Country { get; set; }
 
-		[DataMember(Name = "zip")]
+		[JsonPropertyName("zip")]
 		public string? PostalCode { get; set; }
 
-		[DataMember(Name = "phone")]
+		[JsonPropertyName("phone")]
 		public string? Phone { get; set; }
 
 		#endregion

@@ -20,6 +20,7 @@
     <None Remove="Models\Account\" />
     <None Remove="Models\Media\Analytics\" />
     <None Remove="Models\Schedule\" />
+    <None Remove="RestSharp" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Request\" />
@@ -35,6 +36,6 @@
     <Folder Include="Models\Schedule\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Flurl.Http" Version="3.2.4" />
+    <PackageReference Include="RestSharp" Version="108.0.1" />
   </ItemGroup>
 </Project>

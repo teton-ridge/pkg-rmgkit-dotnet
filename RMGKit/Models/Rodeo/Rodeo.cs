@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 using RMGKit.Models.Event;
 using RMGKit.Models.News;
 using RMGKit.Models.Media;
@@ -9,7 +9,6 @@ namespace RMGKit.Models.Rodeo
 	/// <summary>
 	/// Represents a rodeo event.
 	/// </summary>
-	[DataContract]
 	public class Rodeo
 	{
 		public Rodeo()
@@ -20,43 +19,43 @@ namespace RMGKit.Models.Rodeo
 
 		#region Properties
 
-		[DataMember(Name = "rodeo_id")]
+		[JsonPropertyName("rodeo_id")]
 		public int Id { get; set; }
 
-		[DataMember(Name = "rodeo_name")]
+		[JsonPropertyName("rodeo_name")]
 		public string Name { get; set; }
 
-		[DataMember(Name = "start_date")]
+		[JsonPropertyName("start_date")]
 		public string? StartDateTS { get; set; }
 
-		[DataMember(Name = "end_date")]
+		[JsonPropertyName("end_date")]
 		public string? EndDateTS { get; set; }
 
-		[DataMember(Name = "season")]
+		[JsonPropertyName("season")]
 		public int? Season { get; set; }
 
-		[DataMember(Name = "venue")]
+		[JsonPropertyName("venue")]
 		public Venue? Venue { get; set; }
 
-		[DataMember(Name = "logo_url")]
+		[JsonPropertyName("logo_url")]
 		public string? LogoUrl { get; set; }
 
-		[DataMember(Name = "tickets_url")]
+		[JsonPropertyName("tickets_url")]
 		public string? TicketsUrl { get; set; }
 
-		[DataMember(Name = "description")]
+		[JsonPropertyName("description")]
 		public string? DescriptionHtml { get; set; }
 
-		[DataMember(Name = "results_html")]
+		[JsonPropertyName("results_html")]
 		public string? ResultsHtml { get; set; }
 
-		[DataMember(Name = "live_id")]
+		[JsonPropertyName("live_id")]
 		public string? LiveStreamId { get; set; }
 
-		[DataMember(Name = "related_stories")]
+		[JsonPropertyName("related_stories")]
 		public ArticleList? RelatedStories { get; set; }
 
-		[DataMember(Name = "media")]
+		[JsonPropertyName("media")]
 		public MediaItemList? RelatedMedia { get; set; }
 
 		#endregion

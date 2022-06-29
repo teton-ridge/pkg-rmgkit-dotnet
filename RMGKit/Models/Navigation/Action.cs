@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace RMGKit.Models.Navigation
 {
 	/// <summary>
 	/// Represents an individual navigation action.
 	/// </summary>
-	[DataContract]
 	public class Action
 	{
 		/// <summary>
@@ -48,25 +47,25 @@ namespace RMGKit.Models.Navigation
 
 		#region Properties
 
-		[DataMember(Name = "id")]
+		[JsonPropertyName("id")]
 		public int Id { get; set; }
 
-		[DataMember(Name = "type")]
+		[JsonPropertyName("type")]
 		public ActionType Type { get; set; }
 
-		[DataMember(Name = "caption")]
+		[JsonPropertyName("caption")]
 		public string Caption { get; set; }
 
-		[DataMember(Name = "title")]
+		[JsonPropertyName("title")]
 		public string? Title { get; set; }
 
-		[DataMember(Name = "subtitle")]
+		[JsonPropertyName("subtitle")]
 		public string? SubTitle { get; set; }
 
-		[DataMember(Name = "icon")]
+		[JsonPropertyName("icon")]
 		public string? Icon { get; set; }
 
-		[DataMember(Name = "data")]
+		[JsonPropertyName("data")]
 		public string? Data { get; set; }
 
 		#endregion

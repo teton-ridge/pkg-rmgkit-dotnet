@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace RMGKit.Models.News
 {
 	/// <summary>
 	/// Represents an individual news article.
 	/// </summary>
-	[DataContract]
 	public class Article
 	{
 		/// <summary>
@@ -41,22 +40,22 @@ namespace RMGKit.Models.News
 
 		#region Properties
 
-		[DataMember(Name = "story_id")]
+		[JsonPropertyName("story_id")]
 		public int Id { get; set; }
 
-		[DataMember(Name = "breaking")]
+		[JsonPropertyName("breaking")]
 		public FlagType Flag { get; set; }
 
-		[DataMember(Name = "source")]
+		[JsonPropertyName("source")]
 		public SourceType Source { get; set; }
 
-		[DataMember(Name = "title")]
+		[JsonPropertyName("title")]
 		public string? Title { get; set; }
 
-		[DataMember(Name = "summary")]
+		[JsonPropertyName("summary")]
 		public string? Summary { get; set; }
 
-		[DataMember(Name = "thumb_url")]
+		[JsonPropertyName("thumb_url")]
 		public string? ImageURL { get; set; }
 
         #endregion

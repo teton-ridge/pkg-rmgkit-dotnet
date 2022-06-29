@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace RMGKit.Models.Account
 {
 	/// <summary>
 	/// Represents an active account subscription and any upgrade/downgrade details.
 	/// </summary>
-	[DataContract]
 	public class OwnedProduct
 	{
 		public OwnedProduct()
@@ -19,31 +18,31 @@ namespace RMGKit.Models.Account
 
 		#region Properties
 
-		[DataMember(Name = "product_id")]
+		[JsonPropertyName("product_id")]
 		public string Id { get; set; }
 
-		[DataMember(Name = "description")]
+		[JsonPropertyName("description")]
 		public string Description { get; set; }
 
-		[DataMember(Name = "owned")]
+		[JsonPropertyName("owned")]
 		public bool IsOwned { get; set; }
 
-		[DataMember(Name = "source")]
+		[JsonPropertyName("source")]
 		public string? PurchaseSource { get; set; }
 
-		[DataMember(Name = "purchase_code")]
+		[JsonPropertyName("purchase_code")]
 		public string? PurchaseCode { get; set; }
 
-		[DataMember(Name = "subscription_id")]
+		[JsonPropertyName("subscription_id")]
 		public string? SubscriptionId { get; set; }
 
-		[DataMember(Name = "change_plan_label")]
+		[JsonPropertyName("change_plan_label")]
 		public string? ChangePlanDescription { get; set; }
 
-		[DataMember(Name = "upgrade_product")]
+		[JsonPropertyName("upgrade_product")]
 		public string? UpgradeProductId { get; set; }
 
-		[DataMember(Name = "downgrade_product")]
+		[JsonPropertyName("downgrade_product")]
 		public string? DowngradeProductId { get; set; }
 
 		#endregion

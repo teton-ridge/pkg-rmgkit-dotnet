@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 using System.Collections.Generic;
 
 namespace RMGKit.Models.Standing
@@ -7,7 +7,6 @@ namespace RMGKit.Models.Standing
 	/// <summary>
 	/// Represents a standings group for a specific organization and region/circuit.
 	/// </summary>
-	[DataContract]
 	public class StandingGroup
 	{
 		public StandingGroup()
@@ -18,19 +17,19 @@ namespace RMGKit.Models.Standing
 
 		#region Properties
 
-		[DataMember(Name = "standing_group_id")]
+		[JsonPropertyName("standing_group_id")]
 		public int Id { get; set; }
 
-		[DataMember(Name = "group_name")]
+		[JsonPropertyName("group_name")]
 		public string Name { get; set; }
 
-		[DataMember(Name = "organization")]
+		[JsonPropertyName("organization")]
 		public string? Organization { get; set; }
 
-		[DataMember(Name = "available_years")]
+		[JsonPropertyName("available_years")]
 		public List<int>? AvailableYears { get; set; }
 
-		[DataMember(Name = "events")]
+		[JsonPropertyName("events")]
 		public StandingEventList? Events { get; set; }
 
 		#endregion

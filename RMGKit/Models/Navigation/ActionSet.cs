@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace RMGKit.Models.Navigation
 {
 	/// <summary>
 	/// Represents a titled sub-collection of navigation actions.
 	/// </summary>
-    [DataContract]
 	public class ActionSet
 	{
 		public ActionSet()
@@ -17,16 +16,16 @@ namespace RMGKit.Models.Navigation
 
 		#region Properties
 
-		[DataMember(Name = "id")]
+		[JsonPropertyName("id")]
 		public int Id { get; set; }
 
-		[DataMember(Name = "title")]
+		[JsonPropertyName("title")]
 		public string? Title { get; set; }
 
-		[DataMember(Name = "items")]
+		[JsonPropertyName("items")]
 		public Action[]? Actions { get; set; }
 
-		[DataMember(Name = "groups")]
+		[JsonPropertyName("groups")]
 		public ActionSet[]? Sets { get; set; }
 
 		#endregion

@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 using System.Collections.Generic;
 
 namespace RMGKit.Models.Account
@@ -7,7 +7,6 @@ namespace RMGKit.Models.Account
 	/// <summary>
 	/// Represents subscription details for an account include available and owned products.
 	/// </summary>
-	[DataContract]
 	public class ProductsDetail
 	{
 		public ProductsDetail()
@@ -16,10 +15,10 @@ namespace RMGKit.Models.Account
 
 		#region Properties
 
-		[DataMember(Name = "owned_products")]
+		[JsonPropertyName("owned_products")]
 		public OwnedProductList? OwnedProducts { get; set; }
 
-		[DataMember(Name = "available_products")]
+		[JsonPropertyName("available_products")]
 		public List<string>? AvailableProducts { get; set; }
 
 		#endregion

@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 using System.Collections.Generic;
 
 namespace RMGKit.Models.Standing
@@ -7,7 +7,6 @@ namespace RMGKit.Models.Standing
 	/// <summary>
 	/// Represents an individual standing event.
 	/// </summary>
-	[DataContract]
 	public class StandingEvent
 	{
 		public StandingEvent()
@@ -18,13 +17,13 @@ namespace RMGKit.Models.Standing
 
 		#region Properties
 
-		[DataMember(Name = "event_id")]
+		[JsonPropertyName("event_id")]
 		public int Id { get; set; }
 
-		[DataMember(Name = "event_name")]
+		[JsonPropertyName("event_name")]
 		public string Name { get; set; }
 
-		[DataMember(Name = "standings")]
+		[JsonPropertyName("standings")]
 		public StandingList? Standings { get; set; }
 
 		#endregion

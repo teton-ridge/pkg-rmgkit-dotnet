@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace RMGKit.Models.Media
 {
 	/// <summary>
 	/// Represents a grouping of shows or media items.
 	/// </summary>
-	[DataContract]
 	public class MediaCategory
 	{
 		public MediaCategory()
@@ -15,16 +14,16 @@ namespace RMGKit.Models.Media
 
 		#region Properties
 
-		[DataMember(Name = "genre_id")]
+		[JsonPropertyName("genre_id")]
 		public int Id { get; set; }
 
-		[DataMember(Name = "title")]
+		[JsonPropertyName("title")]
 		public string? Title { get; set; }
 
-        [DataMember(Name = "shows")]
+        [JsonPropertyName("shows")]
         public ShowList? Shows { get; set; }
 
-        [DataMember(Name = "episodes")]
+        [JsonPropertyName("episodes")]
         public MediaItemList? MediaItems { get; set; }
 
         #endregion
