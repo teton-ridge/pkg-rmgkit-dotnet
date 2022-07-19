@@ -224,21 +224,29 @@ namespace RMGKit
 
 			var client = new RestClient();
 			var restRequest = new RestSharp.RestRequest(_url, Method.Post);
-
+			 
 			restRequest.AddHeaders(_headers);
 			//restRequest.AddObject(_params);
 
-			// todo: need to work out how to use parameters
-			//foreach(String key in _params.Keys)
-   //         {
-			//	restRequest.AddParameter(key, _params[key], true);
-   //         }
 
+			// todo: need to work out how to use parameters
+			// Look for a parameter called "jsonbody"
+
+			foreach (var key in _params.Keys)
+            {					
+				if (key == "jsonbody")
+				{
+					var value = _params[key];
+					restRequest.AddJsonBody(value);
+
+				}
+			} 
 			return await client.PostAsync<T?>(restRequest);
 		}
 
         #endregion
 
     }
+
 }
 

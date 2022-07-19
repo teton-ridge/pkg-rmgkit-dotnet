@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Request\**" />
+    <EmbeddedResource Remove="Request\**" />
+    <None Remove="Request\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Modals\Standibng\" />
     <None Remove="Request\" />
     <None Remove="Flurl.Http" />
@@ -23,7 +29,6 @@
     <None Remove="RestSharp" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Request\" />
     <Folder Include="Models\Common\" />
     <Folder Include="Models\News\" />
     <Folder Include="Models\Media\" />
@@ -31,11 +36,11 @@
     <Folder Include="Models\Rodeo\" />
     <Folder Include="Models\Event\" />
     <Folder Include="Models\Standing\" />
-    <Folder Include="Models\Account\" />
     <Folder Include="Models\Media\Analytics\" />
     <Folder Include="Models\Schedule\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="RestSharp" Version="108.0.1" />
+    <PackageReference Include="RestSharp.Serializers.NewtonsoftJson" Version="108.0.1" />
   </ItemGroup>
 </Project>
