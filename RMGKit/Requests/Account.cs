@@ -38,6 +38,20 @@ namespace RMGKit.Requests
 			return new Request(Endpoints.registerForCheckout, $"", parameters, System.Net.Http.HttpMethod.Post);
 		}
         /// <summary>
+        /// Builds a subscribe request.
+        /// </summary>
+        /// <returns></returns>
+        public static Request Subscribe(RMGKit.Models.Account.SubscribeRequest param)
+        {
+            var parameters = new Dictionary<string, Object>();
+            if (param != null)
+            {
+                parameters.Add("jsonbody", param);
+            }
+            return new Request(Endpoints.subscribe, $"", parameters, System.Net.Http.HttpMethod.Post);
+        }
+
+        /// <summary>
         /// Builds a user login request and does not return purchase options.
         /// </summary>
         /// <returns></returns>
