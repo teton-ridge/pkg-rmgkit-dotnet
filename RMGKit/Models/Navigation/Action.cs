@@ -35,7 +35,13 @@ namespace RMGKit.Models.Navigation
 			special_event = 20,
 			web = 98,
 			url = 99,
-			more = 100
+			more = 100,
+			header_menu = 200,
+			footer_menu = 201,
+			webpage = 202,
+			iframe = 203,
+			bannerImage=205,
+			videoshelf = 205,
 		}
 
 		public Action()
@@ -43,30 +49,34 @@ namespace RMGKit.Models.Navigation
 			this.Id = 0;
 			this.Type = ActionType.none;
 			this.Caption = string.Empty;
+			this.MenuClass = string.Empty;
 		}
 
 		#region Properties
 
-		[JsonPropertyName("id")]
+		[JsonPropertyName("element_id")]
 		public int Id { get; set; }
 
-		[JsonPropertyName("type")]
+		[JsonPropertyName("item_action_id")]
 		public ActionType Type { get; set; }
 
-		[JsonPropertyName("caption")]
+		[JsonPropertyName("item_class")]
+		public string MenuClass { get; set; }
+
+		[JsonPropertyName("item_caption")]
 		public string Caption { get; set; }
 
-		[JsonPropertyName("title")]
+		[JsonPropertyName("item_title")]
 		public string? Title { get; set; }
 
-		[JsonPropertyName("subtitle")]
-		public string? SubTitle { get; set; }
-
-		[JsonPropertyName("icon")]
+		[JsonPropertyName("item_icon")]
 		public string? Icon { get; set; }
 
-		[JsonPropertyName("data")]
+		[JsonPropertyName("item_data")]
 		public string? Data { get; set; }
+
+		[JsonPropertyName("children")]
+		public System.Collections.Generic.List<RMGKit.Models.Navigation.Action>? Children { get; set; }
 
 		#endregion
 	}

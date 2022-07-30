@@ -25,7 +25,7 @@ namespace RMGKit.Models.Media
 		[JsonPropertyName("summary")]
 		public string? Summary { get; set; }
 
-		[JsonPropertyName("thumb_url")]
+		[JsonPropertyName("thumbnail_url")]
 		public string? ImageURL { get; set; }
 
 		[JsonPropertyName("seasons")]

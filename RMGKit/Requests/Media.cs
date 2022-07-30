@@ -12,8 +12,8 @@ namespace RMGKit.Requests
 		/// </summary>
 		public static class Endpoints
 		{
-			public static readonly string getCategories = "show/GetShows";
-			public static readonly string getShow = "show/GetShow";
+			public static readonly string getCategories = "device/v2/Show/GetShows";
+			public static readonly string getShow = "device/v2/Show/GetShow";
 		}
 
 		public Media() { }
@@ -27,7 +27,7 @@ namespace RMGKit.Requests
 			return new Request(Endpoints.getCategories);
 		}
 
-		/// <summary>
+		/// <summary>EW
 		/// Builds a get media categories request.
 		/// </summary>
 		/// <returns></returns>

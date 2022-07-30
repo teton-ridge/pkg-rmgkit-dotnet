@@ -14,7 +14,7 @@ namespace RMGKit.Models.Media
 
 		#region Properties
 
-		[JsonPropertyName("genre_id")]
+		[JsonPropertyName("container_id")]
 		public int Id { get; set; }
 
 		[JsonPropertyName("title")]

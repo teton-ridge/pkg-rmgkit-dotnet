@@ -12,7 +12,7 @@ namespace RMGKit.Requests
 		/// </summary>
 		public static class Endpoints
 		{
-			public static readonly string get = "navigation";
+			public static readonly string get = "device/v2/navigation";
 		}
 
 		public Navigation() { }
