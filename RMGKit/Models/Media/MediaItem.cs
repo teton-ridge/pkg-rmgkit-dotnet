@@ -50,6 +50,17 @@ namespace RMGKit.Models.Media
 		[JsonPropertyName("title")]
 		public string? Title { get; set; }
 
+
+		[JsonPropertyName("display_title")]
+		public string? DisplayTitle { get; set; }
+
+
+		[JsonPropertyName("release_date")]
+		public DateTime ReleaseDate { get; set; }
+
+		[JsonPropertyName("PolicyKey")]
+		public string? PolicyKey { get; set; }
+
 		[JsonPropertyName("summary")]
 		public string? Summary { get; set; }
 
@@ -76,6 +87,8 @@ namespace RMGKit.Models.Media
 
 		[JsonPropertyName("ad_tag")]
 		public string? AdTag { get; set; }
+
+		public int StartTime { get; set; } = 0;
 
 		#endregion
 
@@ -126,12 +139,30 @@ namespace RMGKit.Models.Media
 			if (this.DurationInSeconds != null)
             {
 				TimeSpan dur = TimeSpan.FromSeconds(this.DurationInSeconds.Value);
-				return dur.ToString("hh:mm:ss");
             }
 			return null;
         }
-
-        #endregion
-    }
+		public string? TitleLabel()
+		{
+			if (this.DisplayTitle != null)
+			{
+				if (this.DisplayTitle.Length > 0)
+                {
+					return this.DisplayTitle;
+                }				
+			}
+			return this.Title;
+		}
+		public string? SeoDuration()
+		{
+			if (this.DurationInSeconds != null)
+			{
+				TimeSpan dur = TimeSpan.FromSeconds(this.DurationInSeconds.Value);
+				return "PT"+dur.ToString("hh\\Hmm\\Mss\\S");
+			}
+			return null;
+		}
+		#endregion
+	}
 }
 

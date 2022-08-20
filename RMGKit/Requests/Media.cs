@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace RMGKit.Requests
 {
@@ -14,6 +16,7 @@ namespace RMGKit.Requests
 		{
 			public static readonly string getCategories = "device/v2/Show/GetShows";
 			public static readonly string getShow = "device/v2/Show/GetShow";
+			public static readonly string getMedia = "device/v2/Media/GetMedia";
 		}
 
 		public Media() { }
@@ -31,9 +34,17 @@ namespace RMGKit.Requests
 		/// Builds a get media categories request.
 		/// </summary>
 		/// <returns></returns>
-		public static Request GetShow(int showId)
+		public static Request GetShow(long showId)
 		{
 			return new Request(Endpoints.getShow, $"/{showId}");
+		}
+		/// <summary>EW
+		/// Builds a get media categories request.
+		/// </summary>
+		/// <returns></returns>
+		public static Request GetMedia(long mediaID)
+		{
+			return new Request(Endpoints.getMedia, $"/{mediaID}");
 		}
 	}
 }

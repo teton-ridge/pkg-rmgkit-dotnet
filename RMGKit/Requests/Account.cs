@@ -20,6 +20,11 @@ namespace RMGKit.Requests
             public static readonly string getPaymentInfo = "device/v2/customer/getpaymentinfo";
             public static readonly string subscribe = "device/v2/customer/subscribe";
             public static readonly string validateVoucher = "device/v2/customer/validatevoucher";
+            public static readonly string recordView = "device/v2/customer/ViewHistoryAdd";
+            public static readonly string viewHistoryFetch = "device/v2/customer/viewHistoryFetch";
+            public static readonly string followListFetch = "device/v2/customer/FollowListFetch";
+            public static readonly string follow = "device/v2/customer/FollowListAdd";
+            public static readonly string unfollow = "device/v2/customer/FollowListRemove";
         }
 		public Account() { }
 
@@ -103,7 +108,62 @@ namespace RMGKit.Requests
             }
             return new Request(Endpoints.getPaymentInfo, $"", parameters, System.Net.Http.HttpMethod.Post);
         }
-
-        
+        /// <summary>EW
+        /// Builds a get media categories request.
+        /// </summary>
+        /// <returns></returns>
+        public static Request RecordView(RMGKit.Models.Account.RecordViewRequest param)
+        {
+            var parameters = new Dictionary<string, Object>();
+            if (param != null)
+            {
+                parameters.Add("jsonbody", param);
+            }
+            return new Request(Endpoints.recordView, $"", parameters, System.Net.Http.HttpMethod.Post);
+        }
+        /// <summary>EW
+        /// Builds a request to pull back the users viewing history.
+        /// </summary>
+        /// <returns></returns>
+        public static Request GetViewHistory(RMGKit.Models.Account.FollowListRequest param)
+        {
+            var parameters = new Dictionary<string, Object>();
+            if (param != null)
+            {
+                parameters.Add("jsonbody", param);
+            }
+            return new Request(Endpoints.viewHistoryFetch, $"", parameters, System.Net.Http.HttpMethod.Post);
+        }
+        /// <summary>EW
+        /// Builds a request to pull back list of items user is following.
+        /// </summary>
+        /// <returns></returns>
+        public static Request GetFollowList(RMGKit.Models.Account.FollowListRequest param)
+        {
+            var parameters = new Dictionary<string, Object>();
+            if (param != null)
+            {
+                parameters.Add("jsonbody", param);
+            }
+            return new Request(Endpoints.followListFetch, $"", parameters, System.Net.Http.HttpMethod.Post);
+        }
+        public static Request Follow(RMGKit.Models.Account.FollowListRequest param)
+        {
+            var parameters = new Dictionary<string, Object>();
+            if (param != null)
+            {
+                parameters.Add("jsonbody", param);
+            }
+            return new Request(Endpoints.follow, $"", parameters, System.Net.Http.HttpMethod.Post);
+        }
+        public static Request Unfollow(RMGKit.Models.Account.FollowListRequest param)
+        {
+            var parameters = new Dictionary<string, Object>();
+            if (param != null)
+            {
+                parameters.Add("jsonbody", param);
+            }
+            return new Request(Endpoints.unfollow , $"", parameters, System.Net.Http.HttpMethod.Post);
+        }
     }
 }
