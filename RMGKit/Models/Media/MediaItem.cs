@@ -90,6 +90,9 @@ namespace RMGKit.Models.Media
 
 		public int StartTime { get; set; } = 0;
 
+		[JsonPropertyName("is_following")]
+		public int IsFollowing { get; set; }
+
 		#endregion
 
 		#region Methods
