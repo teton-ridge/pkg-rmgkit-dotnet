@@ -12,6 +12,13 @@ namespace RMGKit.Models.Content
             link = 0,
             browser_link= 1
         }
+        public enum SlideDataType : int
+        {
+            unknown = 0,
+            mediaitem = 1,
+            usermediaitem = 2,
+            show=3
+        }
         public Slide()
         {
 
@@ -31,7 +38,11 @@ namespace RMGKit.Models.Content
         [JsonPropertyName("target")]
         public string? Target { get; set; }
 
+        [JsonPropertyName("summary")]
+        public string Summary { get; set; } = "";
 
+        [JsonPropertyName("data_type")]
+        public SlideDataType SourceType { get; set; } = SlideDataType.unknown;
 
         [JsonPropertyName("data")]
         public object? Data { get; set; }

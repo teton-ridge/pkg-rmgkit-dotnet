@@ -15,6 +15,8 @@ namespace RMGKit.Models.Account
 			this.Result = 0;
 			this.Tags = new List<string>();
 			this.CardData = String.Empty;
+			this.FirstName = String.Empty;
+			this.LastName = String.Empty;
 			this.ShowReset = false;
 		}
 		#region Properties
@@ -27,6 +29,12 @@ namespace RMGKit.Models.Account
 
 		[JsonPropertyName("session_token")]
 		public string SessionToken { get; set; }
+
+		[JsonPropertyName("first_name")]
+		public string FirstName { get; set; }
+
+		[JsonPropertyName("last_name")]
+		public string LastName { get; set; }
 
 		[JsonPropertyName("show_reset")]
 		public bool ShowReset { get; set; }

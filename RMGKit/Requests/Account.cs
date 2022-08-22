@@ -16,6 +16,7 @@ namespace RMGKit.Requests
         {
             public static readonly string registerForCheckout = "device/v2/customer/registercheckout";
             public static readonly string authenticateForCheckout = "device/v2/customer/authenticatecheckout";
+            public static readonly string authenticateForSummary = "device/v2/customer/authenticateForSummary";
             public static readonly string authenticate = "device/v2/customer/authenticate";
             public static readonly string getPaymentInfo = "device/v2/customer/getpaymentinfo";
             public static readonly string subscribe = "device/v2/customer/subscribe";
@@ -25,6 +26,8 @@ namespace RMGKit.Requests
             public static readonly string followListFetch = "device/v2/customer/FollowListFetch";
             public static readonly string follow = "device/v2/customer/FollowListAdd";
             public static readonly string unfollow = "device/v2/customer/FollowListRemove";
+            public static readonly string deleteHistoryItem = "device/v2/customer/ViewHistoryDelete";
+            
         }
 		public Account() { }
 
@@ -81,6 +84,19 @@ namespace RMGKit.Requests
                 parameters.Add("jsonbody", param);
             }
             return new Request(Endpoints.authenticateForCheckout, $"", parameters, System.Net.Http.HttpMethod.Post);
+        }
+        /// <summary>
+        /// Builds a user login request and returns purchase options.
+        /// </summary>
+        /// <returns></returns>
+        public static Request AuthenticateForSummary(RMGKit.Models.Account.UserAuthenticationRequest param)
+        {
+            var parameters = new Dictionary<string, Object>();
+            if (param != null)
+            {
+                parameters.Add("jsonbody", param);
+            }
+            return new Request(Endpoints.authenticateForSummary, $"", parameters, System.Net.Http.HttpMethod.Post);
         }
         /// <summary>
         /// Validates a voucher code, pass through call.
@@ -165,5 +181,15 @@ namespace RMGKit.Requests
             }
             return new Request(Endpoints.unfollow , $"", parameters, System.Net.Http.HttpMethod.Post);
         }
+        public static Request DeleteHistoryItem(RMGKit.Models.Account.FollowListRequest param)
+        {
+            var parameters = new Dictionary<string, Object>();
+            if (param != null)
+            {
+                parameters.Add("jsonbody", param);
+            }
+            return new Request(Endpoints.deleteHistoryItem, $"", parameters, System.Net.Http.HttpMethod.Post);
+        }
+
     }
 }
