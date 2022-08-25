@@ -40,6 +40,5 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="RestSharp" Version="108.0.1" />
-    <PackageReference Include="RestSharp.Serializers.NewtonsoftJson" Version="108.0.1" />
   </ItemGroup>
 </Project>
