@@ -8,21 +8,20 @@ namespace RMGKit.Models.Content
     {
         public enum BlockType : int
         {
-            none = -1,
-            text_content = 0,
+            Unknown = 0,
             html_content = 1,
             carousel_banner = 2,
             carousel_hero = 3,
-            carousel_large_thumb = 4,
-            carousel_thumb_single = 5,
-            carousel_thumb_double = 6,
-            grid_thumbnails = 7,
-            grid_thumbnails_x3 = 8,
-            grid_thumbnails_x4 = 9,
-            grid_thumbnails_x5 = 10,
+            carousel_thumb_single_large = 4,
+            carousel_thumb_single_medium = 5,
+            carousel_thumb_single_small = 6,
+            carousel_thumb_double_small = 7,
+            grid_thumbnails_Large = 8,
+            grid_thumbnails_Medium = 9,
+            grid_thumbnails_Small= 10,
             grid_thumbnails_paged = 11,
             banner_small = 12,
-            banner_large = 13
+            banner_large = 13,
         }
         public Block()
         {

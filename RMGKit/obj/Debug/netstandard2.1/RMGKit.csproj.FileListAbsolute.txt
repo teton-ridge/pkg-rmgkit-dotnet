@@ -18,3 +18,13 @@ E:\Projects\RMG\rmg-libs\rmgkit-dotnet\RMGKit\obj\Debug\netstandard2.1\RMGKit.As
 E:\Projects\RMG\rmg-libs\rmgkit-dotnet\RMGKit\obj\Debug\netstandard2.1\RMGKit.csproj.CoreCompileInputs.cache
 E:\Projects\RMG\rmg-libs\rmgkit-dotnet\RMGKit\obj\Debug\netstandard2.1\RMGKit.dll
 E:\Projects\RMG\rmg-libs\rmgkit-dotnet\RMGKit\obj\Debug\netstandard2.1\RMGKit.pdb
+C:\RMG\TCC-GIT\rmg-libs\rmgkit-dotnet\RMGKit\bin\Debug\netstandard2.1\RMGKit.deps.json
+C:\RMG\TCC-GIT\rmg-libs\rmgkit-dotnet\RMGKit\bin\Debug\netstandard2.1\RMGKit.dll
+C:\RMG\TCC-GIT\rmg-libs\rmgkit-dotnet\RMGKit\bin\Debug\netstandard2.1\RMGKit.pdb
+C:\RMG\TCC-GIT\rmg-libs\rmgkit-dotnet\RMGKit\obj\Debug\netstandard2.1\RMGKit.csproj.AssemblyReference.cache
+C:\RMG\TCC-GIT\rmg-libs\rmgkit-dotnet\RMGKit\obj\Debug\netstandard2.1\RMGKit.GeneratedMSBuildEditorConfig.editorconfig
+C:\RMG\TCC-GIT\rmg-libs\rmgkit-dotnet\RMGKit\obj\Debug\netstandard2.1\RMGKit.AssemblyInfoInputs.cache
+C:\RMG\TCC-GIT\rmg-libs\rmgkit-dotnet\RMGKit\obj\Debug\netstandard2.1\RMGKit.AssemblyInfo.cs
+C:\RMG\TCC-GIT\rmg-libs\rmgkit-dotnet\RMGKit\obj\Debug\netstandard2.1\RMGKit.csproj.CoreCompileInputs.cache
+C:\RMG\TCC-GIT\rmg-libs\rmgkit-dotnet\RMGKit\obj\Debug\netstandard2.1\RMGKit.dll
+C:\RMG\TCC-GIT\rmg-libs\rmgkit-dotnet\RMGKit\obj\Debug\netstandard2.1\RMGKit.pdb

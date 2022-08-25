@@ -1,20 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Projects\\RMG\\rmg-libs\\rmgkit-dotnet\\RMGKit\\RMGKit.csproj": {}
+    "C:\\RMG\\TCC-GIT\\rmg-libs\\rmgkit-dotnet\\RMGKit\\RMGKit.csproj": {}
   },
   "projects": {
-    "E:\\Projects\\RMG\\rmg-libs\\rmgkit-dotnet\\RMGKit\\RMGKit.csproj": {
+    "C:\\RMG\\TCC-GIT\\rmg-libs\\rmgkit-dotnet\\RMGKit\\RMGKit.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Projects\\RMG\\rmg-libs\\rmgkit-dotnet\\RMGKit\\RMGKit.csproj",
+        "projectUniqueName": "C:\\RMG\\TCC-GIT\\rmg-libs\\rmgkit-dotnet\\RMGKit\\RMGKit.csproj",
         "projectName": "RMGKit",
-        "projectPath": "E:\\Projects\\RMG\\rmg-libs\\rmgkit-dotnet\\RMGKit\\RMGKit.csproj",
+        "projectPath": "C:\\RMG\\TCC-GIT\\rmg-libs\\rmgkit-dotnet\\RMGKit\\RMGKit.csproj",
         "packagesPath": "C:\\Users\\Ken\\.nuget\\packages\\",
-        "outputPath": "E:\\Projects\\RMG\\rmg-libs\\rmgkit-dotnet\\RMGKit\\obj\\",
+        "outputPath": "C:\\RMG\\TCC-GIT\\rmg-libs\\rmgkit-dotnet\\RMGKit\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
           "C:\\Users\\Ken\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,7 +60,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -64,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.303\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
