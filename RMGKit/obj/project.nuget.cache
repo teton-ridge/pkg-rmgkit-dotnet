@@ -1,13 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "XEq+z3d9oDVSybAB00mTPRCJKXZThCJ+MaT4fejl/6ogXzDvA7eJMaFCvQNw7c+1AqooyEp33I0FST4Fa4iK+g==",
+  "dgSpecHash": "qDqj70ymZ4TUvT+NFNNeOTs1BGw2q8C0irVkbJQ3/QUms0edToW75oGLsMUaRyAfbvVGnmAOfrxQOrG3arOSng==",
   "success": true,
   "projectFilePath": "C:\\RMG\\TCC-GIT\\rmg-libs\\rmgkit-dotnet\\RMGKit\\RMGKit.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ken\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\5.0.0\\microsoft.bcl.asyncinterfaces.5.0.0.nupkg.sha512",
-    "C:\\Users\\Ken\\.nuget\\packages\\newtonsoft.json\\12.0.1\\newtonsoft.json.12.0.1.nupkg.sha512",
     "C:\\Users\\Ken\\.nuget\\packages\\restsharp\\108.0.1\\restsharp.108.0.1.nupkg.sha512",
-    "C:\\Users\\Ken\\.nuget\\packages\\restsharp.serializers.newtonsoftjson\\108.0.1\\restsharp.serializers.newtonsoftjson.108.0.1.nupkg.sha512",
     "C:\\Users\\Ken\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\Ken\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
