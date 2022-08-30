@@ -14,7 +14,7 @@ namespace RMGKit.Requests
     {
         public static class Endpoints
         {
-            public static readonly string getPage = "device/v2/Content/GetPage";
+            public static readonly string getPage = "device/v2/Content/GetPage/";
         }
 		public Content() { }
 
@@ -24,7 +24,7 @@ namespace RMGKit.Requests
 		/// <returns></returns>
 		public static Request getPage(string pageSlug="home")
 		{
-            return new Request(Endpoints.getPage, pageSlug, null, System.Net.Http.HttpMethod.Get) ;
+            return new Request(Endpoints.getPage,pageSlug, null, System.Net.Http.HttpMethod.Get) ;
 		}
        
 

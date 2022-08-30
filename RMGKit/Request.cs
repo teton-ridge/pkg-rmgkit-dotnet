@@ -36,7 +36,8 @@ namespace RMGKit
 
 		public Request(string endpoint, string path, Dictionary<string, Object>? parameters)
 		{
-			this._endpoint = endpoint;
+            this._path = path;
+            this._endpoint = endpoint;
 			this._parameters = parameters;
 		}
 
@@ -45,7 +46,8 @@ namespace RMGKit
 			this._endpoint = endpoint;
 			this._parameters = parameters;
 			this._method = method;
-		}
+            this._path = path;
+        }
 
 		#region Properties
 
