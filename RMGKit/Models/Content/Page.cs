@@ -11,8 +11,9 @@ namespace RMGKit.Models.Content
 	{
 		public Page()
 		{
+            NavigationSetName = String.Empty;
 
-		}
+        }
 
 		#region Properties
 		[JsonPropertyName("title")]
@@ -23,6 +24,9 @@ namespace RMGKit.Models.Content
 
         [JsonPropertyName("navigation")]
         public RMGKit.Models.Navigation.Navigation? Navigation { get; set; }
+        [JsonPropertyName("navigation_set_name")]
+        public string NavigationSetName { get; set; }
+
         #endregion
 
         #region Methods
