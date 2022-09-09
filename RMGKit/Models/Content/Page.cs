@@ -12,7 +12,7 @@ namespace RMGKit.Models.Content
 		public Page()
 		{
             NavigationSetName = String.Empty;
-
+            NavigationSetID = 0;
         }
 
 		#region Properties
@@ -26,7 +26,8 @@ namespace RMGKit.Models.Content
         public RMGKit.Models.Navigation.Navigation? Navigation { get; set; }
         [JsonPropertyName("navigation_set_name")]
         public string NavigationSetName { get; set; }
-
+        [JsonPropertyName("navigation_set_id")]
+        public long NavigationSetID { get; set; }
         #endregion
 
         #region Methods

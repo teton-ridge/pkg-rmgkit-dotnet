@@ -17,6 +17,7 @@ namespace RMGKit.Requests
 			public static readonly string getCategories = "device/v2/Show/GetShows";
 			public static readonly string getShow = "device/v2/Show/GetShow";
 			public static readonly string getMedia = "device/v2/Media/GetMedia";
+			public static readonly string getStream = "device/v2/Media/GetStream";
 			public static readonly string getJWMedia = "device/v2/Media/GetJWMedia";
 		}
 
@@ -51,6 +52,19 @@ namespace RMGKit.Requests
 				parameters.Add("jsonbody", param);
 			}
 			return new Request(Endpoints.getMedia, $"", parameters, System.Net.Http.HttpMethod.Post);
+		}
+		/// <summary>EW
+		/// Builds a get media categories request.
+		/// </summary>
+		/// <returns></returns>
+		public static Request GetStream(RMGKit.Models.Media.MediaRequest param)
+		{
+			var parameters = new Dictionary<string, Object>();
+			if (param != null)
+			{
+				parameters.Add("jsonbody", param);
+			}
+			return new Request(Endpoints.getStream, $"", parameters, System.Net.Http.HttpMethod.Post);
 		}
 		/// <summary>EW
 		/// Builds a get media categories request.

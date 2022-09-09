@@ -8,10 +8,20 @@ namespace RMGKit.Models.Media
 	/// </summary>
 	public class Show
 	{
+		public enum ShowDisplayType : int
+		{
+			displayPoster = 0,
+			displayBanner = 1,
+			displayAnimated = 2,
+			displayVideo=3
+		}
+
 		public Show()
 		{
 			this.Id = 0;
 			this.Groups = new MediaGroupList();
+			this.DisplayType = ShowDisplayType.displayPoster;
+			this.DisplayData = String.Empty;
 		}
 
 		#region Properties
@@ -24,6 +34,13 @@ namespace RMGKit.Models.Media
 
 		[JsonPropertyName("summary")]
 		public string? Summary { get; set; }
+
+		[JsonPropertyName("display_type")]
+		public ShowDisplayType DisplayType { get; set; }
+
+		[JsonPropertyName("display_data")]
+		public string? DisplayData { get; set; }
+
 
 		[JsonPropertyName("thumbnail_url")]
 		public string? ImageURL { get; set; }
