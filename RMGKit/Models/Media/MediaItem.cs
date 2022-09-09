@@ -34,7 +34,7 @@ namespace RMGKit.Models.Media
 			this.Id = 0;
 			this.Source = SourceType.none;
 			this.Drm = 0;
-			this.Episode=String.Empty;
+			this.EpisodicTag=String.Empty;
 		}
 
 		#region Properties
@@ -55,8 +55,8 @@ namespace RMGKit.Models.Media
 		[JsonPropertyName("display_title")]
 		public string? DisplayTitle { get; set; }
 
-		[JsonPropertyName("episode")]
-		public string Episode { get; set; }
+		[JsonPropertyName("episodic_tag")]
+		public string EpisodicTag { get; set; }
 
 		[JsonPropertyName("release_date")]
 		public DateTime ReleaseDate { get; set; }
@@ -91,6 +91,20 @@ namespace RMGKit.Models.Media
 		[JsonPropertyName("ad_tag")]
 		public string? AdTag { get; set; }
 
+		public string Episode
+		{
+			get { 
+				if (EpisodicTag.Length> 0)
+                {
+					if (EpisodicTag.Length > 5)
+                    {
+						return EpisodicTag.Substring(5);
+					}
+				}				
+				return ""; 
+			}
+		}
+
 		public int StartTime { get; set; } = 0;
 
 		[JsonPropertyName("is_following")]
@@ -99,6 +113,11 @@ namespace RMGKit.Models.Media
 		#endregion
 
 		#region Methods
+		/// <summary>
+		/// Indicates if the media item is drm protected.
+		/// </summary>
+		/// <returns></returns>
+
 
 		/// <summary>
 		/// Indicates if the media item is drm protected.
