@@ -34,6 +34,7 @@ namespace RMGKit.Models.Media
 			this.Id = 0;
 			this.Source = SourceType.none;
 			this.Drm = 0;
+			this.Episode=String.Empty;
 		}
 
 		#region Properties
@@ -54,6 +55,8 @@ namespace RMGKit.Models.Media
 		[JsonPropertyName("display_title")]
 		public string? DisplayTitle { get; set; }
 
+		[JsonPropertyName("episode")]
+		public string Episode { get; set; }
 
 		[JsonPropertyName("release_date")]
 		public DateTime ReleaseDate { get; set; }
