@@ -187,6 +187,7 @@ namespace RMGKit.Models.Media
 			}
 			return null;
 		}
+				MatchCollection matches = new Regex(episodeTagFormat1).Matches(this.EpisodicTag);
 		#endregion
 	}
 }
