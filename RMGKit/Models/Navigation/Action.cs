@@ -38,10 +38,10 @@ namespace RMGKit.Models.Navigation
 			more = 100,
 			header_menu = 200,
 			footer_menu = 201,
-			webpage = 202,
-			iframe = 203,
-			bannerImage=205,
-			videoshelf = 205,
+			goto_page = 202,
+			new_page_link = 203,
+			iframe = 204,
+			top_level_menu=205
 		}
 
 		public Action()
