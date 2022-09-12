@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.Json.Serialization;
 using System.Collections.Generic;
-
+using System.Linq;
 namespace RMGKit.Models.Media
 {
 	/// <summary>
@@ -93,15 +93,30 @@ namespace RMGKit.Models.Media
 
 		public string Episode
 		{
-			get { 
-				if (EpisodicTag.Length> 0)
+			get {
+				string ep = string.Empty;
+				//Episode 
+				if (EpisodicTag.Length > 5)
                 {
-					if (EpisodicTag.Length > 5)
-                    {
-						return EpisodicTag.Substring(5);
+					ep = EpisodicTag.Substring(6);
+					if (ep.Length > 0)
+					{
+						if (ep.All(char.IsNumber))
+                        {
+							ep = "Episode " + long.Parse(ep).ToString();
+                        }
+                        else
+                        {
+							ep = "Episode " + ep;
+						}
 					}
-				}				
-				return ""; 
+				}	
+				// release Date
+				if (ReleaseDate != null)
+                {
+					ep = ep + "   \u2022   Air Date:" + ReleaseDate.ToString("MMM dd, yyyy");
+				}
+				return ep; 
 			}
 		}
 
