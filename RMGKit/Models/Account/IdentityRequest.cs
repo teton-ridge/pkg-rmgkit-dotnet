@@ -2,19 +2,15 @@
 using System.Text.Json.Serialization;
 namespace RMGKit.Models.Account
 {
-	public class SubscribeRequest
+	public class IdentityRequest
 	{
-		public SubscribeRequest()
+		public IdentityRequest()
 		{
 			this.Token = String.Empty;
-			this.Product = String.Empty;
-			this.Voucher = String.Empty;
 		}
 		#region Properties
+		[JsonPropertyName("token")]
 		public string Token { get; set; }
-		public string Product { get; set; }
-		public string Voucher { get; set; }
 		#endregion
 	}
 }
-

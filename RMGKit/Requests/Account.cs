@@ -27,7 +27,7 @@ namespace RMGKit.Requests
             public static readonly string follow = "device/v2/customer/FollowListAdd";
             public static readonly string unfollow = "device/v2/customer/FollowListRemove";
             public static readonly string deleteHistoryItem = "device/v2/customer/ViewHistoryDelete";
-            
+            public static readonly string clearAllHistory = "device/v2/customer/ViewHistoryClear";
         }
 		public Account() { }
 
@@ -190,6 +190,17 @@ namespace RMGKit.Requests
             }
             return new Request(Endpoints.deleteHistoryItem, $"", parameters, System.Net.Http.HttpMethod.Post);
         }
+
+        public static Request ClearAllHistory(RMGKit.Models.Account.IdentityRequest param)
+        {
+            var parameters = new Dictionary<string, Object>();
+            if (param != null)
+            {
+                parameters.Add("jsonbody", param);
+            }
+            return new Request(Endpoints.clearAllHistory, $"", parameters, System.Net.Http.HttpMethod.Post);
+        }
+        
 
     }
 }
