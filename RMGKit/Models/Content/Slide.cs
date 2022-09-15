@@ -26,7 +26,7 @@ namespace RMGKit.Models.Content
         {
             notastream = 0,
             scheduled = 1,
-            prelive = 2,
+            pre_live = 2,
             live = 3,
             completed = 4
         }
@@ -58,7 +58,7 @@ namespace RMGKit.Models.Content
         [JsonPropertyName("stream_status")]
         public StreamStatusCode StreamStatus { get; set; } = StreamStatusCode.notastream;
 
-        [JsonPropertyName("stream_start")]
+        [JsonPropertyName("stream_date")]
         public DateTime? StreamStart { get; set; }
 
         [JsonPropertyName("data")]

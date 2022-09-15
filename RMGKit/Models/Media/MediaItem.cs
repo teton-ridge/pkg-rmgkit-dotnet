@@ -61,7 +61,7 @@ namespace RMGKit.Models.Media
 		[JsonPropertyName("release_date")]
 		public DateTime ReleaseDate { get; set; }
 
-		[JsonPropertyName("PolicyKey")]
+		[JsonPropertyName("policy_key")]
 		public string? PolicyKey { get; set; }
 
 		[JsonPropertyName("summary")]
