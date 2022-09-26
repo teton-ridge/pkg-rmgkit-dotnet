@@ -22,7 +22,32 @@ namespace RMGKit.Models.Content
             grid_thumbnails_paged = 11,
             banner_small = 12,
             banner_large = 13,
+            Preformatted_Content = 14
         }
+        public enum BlockDataType : int
+        {
+            Unknown = 0,
+            Shows_ByContainer = 1,
+            Live_AllContent = 2,
+            Episodes_BySeason = 3,
+            Shows_ByTag = 4,
+            Episodes_ByTag = 5,
+            Custom_List = 6,
+            Live_Channels = 7,
+            Live_Published = 8,
+            Live_Unpublished = 9,
+            Live_Scheduled = 10,
+            Live_Published_Unpublished = 11,
+            Live_Events = 12,
+            Live_ByTag = 13,
+            EPGFeed = 14,
+            SearchResults = 15,
+            RodeoList = 16,
+            UserHistory = 17,
+            UserFavorites = 18,
+            AccountTopNavigation = 19
+        }
+
         public Block()
         {
 
@@ -34,7 +59,11 @@ namespace RMGKit.Models.Content
         [JsonPropertyName("block_type")]
         public BlockType Type { get; set; }
 
-        [JsonPropertyName("html")]
+        [JsonPropertyName("block_data_type")]
+        public BlockDataType DataType { get; set; }
+
+
+       [JsonPropertyName("html")]
         public string? HTML { get; set; }
 
         [JsonPropertyName("text")]

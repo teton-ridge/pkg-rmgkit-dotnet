@@ -41,11 +41,14 @@ namespace RMGKit.Models.Media
 		[JsonPropertyName("display_data")]
 		public string? DisplayData { get; set; }
 
-		[JsonPropertyName("thumb_url")]
+		[JsonPropertyName("thumbnail_url")]
 		public string? ImageURL { get; set; }
 
 		[JsonPropertyName("seasons")]
 		public MediaGroupList Groups { get; set; }
+
+		[JsonPropertyName("follow_list_id")]
+		public int FollowListID { get; set; } = 0;
 
 		#endregion
 

@@ -29,7 +29,6 @@
     <None Remove="RestSharp" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\Common\" />
     <Folder Include="Models\News\" />
     <Folder Include="Models\Athlete\" />
     <Folder Include="Models\Rodeo\" />

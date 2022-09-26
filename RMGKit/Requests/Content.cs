@@ -15,6 +15,7 @@ namespace RMGKit.Requests
         public static class Endpoints
         {
             public static readonly string getPage = "device/v2/Content/GetPage/";
+            public static readonly string getEPG = "device/v2/Content/getguide/";
         }
 		public Content() { }
 
@@ -26,8 +27,14 @@ namespace RMGKit.Requests
 		{
             return new Request(Endpoints.getPage,pageSlug, null, System.Net.Http.HttpMethod.Get) ;
 		}
-       
+        public static Request getSearchPage(string term = "",int start=0, int pageLength = 50)
+        {
+            return new Request(Endpoints.getPage, "?slug=search&term="+ term + "&start=" + start.ToString() + "&count=" + pageLength.ToString(), null, System.Net.Http.HttpMethod.Get);
+        }
+        public static Request getGuide()
+        {
+            return new Request(Endpoints.getEPG, "", null, System.Net.Http.HttpMethod.Get);
+        }
 
-        
     }
 }

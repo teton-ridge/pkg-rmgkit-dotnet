@@ -14,10 +14,10 @@ namespace RMGKit.Models.Media
 		/// </summary>
 		public enum SourceType : int {
 			none = 0,
-			franklyRDF = 1,
-			franklyTCC = 2,
-			brightcoveVOD = 3,
-			brightcoveLive = 4
+			RFDNews = 1,
+			TCCNews = 2,
+			OTTVOD = 3,
+			OTTLive = 4
 		}
 
 		/// <summary>
@@ -90,6 +90,12 @@ namespace RMGKit.Models.Media
 
 		[JsonPropertyName("ad_tag")]
 		public string? AdTag { get; set; }
+
+		[JsonPropertyName("follow_list_id")]
+		public int FollowListID { get; set; } = 0;
+
+		[JsonPropertyName("progress")]
+		public int Progress { get; set; } = 0;
 
 		public string Episode
 		{
@@ -166,8 +172,8 @@ namespace RMGKit.Models.Media
 		/// </summary>
 		/// <returns></returns>
 		public bool SubscriptionIsRequired()
-        {
-			return this.Premium == 1;
+        {		
+				return this.Premium == 1 && this.Tags.Count > 0;
         }
 
 		/// <summary>

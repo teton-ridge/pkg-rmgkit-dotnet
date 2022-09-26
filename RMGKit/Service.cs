@@ -144,7 +144,8 @@ namespace RMGKit
 				{ "X-APIKey", $"{this.authenticationCode}:{this.authenticationKey}" },
 				{ "X-Property", this.applicationIdentifier },
 				{ "X-App-Ver", this.applicationVersion },
-				{ "X-User", (this.currentUser ?? "") },
+				{ "X-UserName", (this.currentUser ?? "") },
+				{ "X-UserToken", "" },
 				{ "X-Device", (this.currentDeviceToken ?? "") }
 			};
         }
@@ -174,8 +175,8 @@ namespace RMGKit
 		/// <typeparam name="T"></typeparam>
 		/// <param name="request">The api request definition.</param>
 		/// <param name="onComplete">The request callback handler.</param>
-		public async void Fetch<T>(Request request, FetchDelegate<T> onComplete) where T : class {
-			var result = await Fetch<T>(request);
+		public async void Fetch<T>(Request request, FetchDelegate<T> onComplete, RMGKit.Models.Common.CallerIdentity? caller) where T : class {
+			var result = await Fetch<T>(request, caller);
 			onComplete(result);
 		}
 
@@ -185,9 +186,10 @@ namespace RMGKit
 		/// <typeparam name="T"></typeparam>
 		/// <param name="request"></param>
 		/// <returns></returns>
-		public Task<T?> Fetch<T>(Request request) where T : class
+		public Task<T?> Fetch<T>(Request request,RMGKit.Models.Common.CallerIdentity? caller ) where T : class
 		{
 			HttpMethod _method = request.Method;
+			request.setIdentity(caller ?? new RMGKit.Models.Common.CallerIdentity());
 			if (request.Method == HttpMethod.Post)
 				return Post<T>(request);
 			else
@@ -212,6 +214,26 @@ namespace RMGKit
 			//restRequest.AddObject(_params);
 			// todo: need to work out how to use parameters
 
+			
+			foreach (var key in _params.Keys)
+			{
+				if (key == "username")
+				{
+					var value = _params[key];
+					restRequest.AddOrUpdateHeader("X-UserName", value.ToString());
+
+				}
+				if (key == "usertoken")
+				{
+					var value = _params[key];
+					restRequest.AddOrUpdateHeader("X-UserToken", value.ToString());
+				}
+				if (key == "devicetoken")
+				{
+					var value = _params[key];
+					restRequest.AddOrUpdateHeader("X-Device", value.ToString());
+				}
+			}
 			return await client.GetAsync<T?>(restRequest);
 		}
 
@@ -226,6 +248,7 @@ namespace RMGKit
 			var restRequest = new RestSharp.RestRequest(_url, Method.Post);
 			 
 			restRequest.AddHeaders(_headers);
+			
 			//restRequest.AddObject(_params);
 
 
@@ -239,6 +262,22 @@ namespace RMGKit
 					var value = _params[key];
 					restRequest.AddJsonBody(value);
 
+				}
+				if (key == "username")
+				{
+					var value = _params[key];
+					restRequest.AddOrUpdateHeader("X-UserName", value.ToString());
+
+				}
+				if (key == "usertoken")
+				{
+					var value = _params[key];
+					restRequest.AddOrUpdateHeader("X-UserToken", value.ToString());
+				}
+				if (key == "devicetoken")
+				{
+					var value = _params[key];
+					restRequest.AddOrUpdateHeader("X-Device", value.ToString());
 				}
 			} 
 			return await client.PostAsync<T?>(restRequest);

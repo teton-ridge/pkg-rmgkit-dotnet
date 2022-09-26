@@ -71,6 +71,16 @@ namespace RMGKit
 			get { return this._parameters; }
 		}
 
+		public void setIdentity(RMGKit.Models.Common.CallerIdentity caller)
+		{
+			if (_parameters == null)
+            {
+				_parameters = new Dictionary<string, Object>();
+			}
+			_parameters.TryAdd("username", caller.UserName);
+			_parameters.TryAdd("usertoken", caller.UserToken);
+			_parameters.TryAdd("devicetoken", caller.DeviceToken);
+		}
 		#endregion
 	}
 }

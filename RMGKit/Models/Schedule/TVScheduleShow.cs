@@ -26,7 +26,7 @@ namespace RMGKit.Models.Schedule
 		[JsonPropertyName("airdate")]
 		public string AirDateTS { get; set; }
 
-		[JsonPropertyName("airdate")]
+		[JsonPropertyName("season")]
 		public string? Season { get; set; }
 
 		[JsonPropertyName("episode")]
