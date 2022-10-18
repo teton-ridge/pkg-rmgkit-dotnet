@@ -155,7 +155,7 @@ namespace RMGKit.Models.Media
 		/// <returns></returns>
 		public bool IsLive()
         {
-			return this.MetaData?.Contains("livehls") ?? false;
+			return this.Source==SourceType.OTTLive;
         }
 
 		/// <summary>
@@ -173,7 +173,7 @@ namespace RMGKit.Models.Media
 		/// <returns></returns>
 		public bool SubscriptionIsRequired()
         {		
-				return this.Premium == 1 && this.Tags.Count > 0;
+				return this.Premium == 1 && this.Tags.Any(t => t.Length > 0);
         }
 
 		/// <summary>

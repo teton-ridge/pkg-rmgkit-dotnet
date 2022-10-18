@@ -26,13 +26,13 @@ namespace RMGKit.Models.Content
         }
         public enum BlockDataType : int
         {
-            Unknown = 0,
+            Unknown =0 ,
             Shows_ByContainer = 1,
             Live_AllContent = 2,
             Episodes_BySeason = 3,
             Shows_ByTag = 4,
             Episodes_ByTag = 5,
-            Custom_List = 6,
+            Custom_PLayList = 6,
             Live_Channels = 7,
             Live_Published = 8,
             Live_Unpublished = 9,
@@ -40,14 +40,17 @@ namespace RMGKit.Models.Content
             Live_Published_Unpublished = 11,
             Live_Events = 12,
             Live_ByTag = 13,
-            EPGFeed = 14,
-            SearchResults = 15,
-            RodeoList = 16,
-            UserHistory = 17,
-            UserFavorites = 18,
-            AccountTopNavigation = 19
+            EPG_Feed = 14,
+            Search_Results = 15,
+            Rodeo_Schedule = 16,
+            User_History = 17,
+            User_Favorites = 18,
+            Account_Top_Navigation = 19,
+            Shows_ByDynamicTag = 20,
+            Episodes_ByDynamicTag = 21,
+            Live_ByDynamicTag = 22,
+            Live_ExceptChannel = 23
         }
-
         public Block()
         {
 
@@ -78,6 +81,8 @@ namespace RMGKit.Models.Content
         [JsonPropertyName("slides")]
         public List<RMGKit.Models.Content.Slide>? Slides { get; set; }
 
+        [JsonPropertyName("use_personalization")]
+        public int UsePersonalization { get; set; }
 
         #endregion
 

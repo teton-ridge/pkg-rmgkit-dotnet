@@ -20,7 +20,9 @@ namespace RMGKit.Models.Content
             show = 3,
             season = 4,
             liveevent = 5,
-            livechannel = 6
+            livechannel = 6,
+            playlist = 7,
+            customitem = 8
         }
         public enum StreamStatusCode : int
         {
@@ -76,6 +78,7 @@ namespace RMGKit.Models.Content
         public long DataID { get; set; } = 0;
 
 
+        public long Sequence { get; set; } = 0;
         #endregion
 
     }

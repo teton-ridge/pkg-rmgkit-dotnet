@@ -31,6 +31,10 @@ namespace RMGKit.Requests
         {
             return new Request(Endpoints.getPage, "?slug=search&term="+ term + "&start=" + start.ToString() + "&count=" + pageLength.ToString(), null, System.Net.Http.HttpMethod.Get);
         }
+        public static Request getCustomPage(string pageSlug = "", string term = "")
+        {
+            return new Request(Endpoints.getPage, "?slug="+ pageSlug + "&term=" + term + "&start=0&count=0", null, System.Net.Http.HttpMethod.Get);
+        }
         public static Request getGuide()
         {
             return new Request(Endpoints.getEPG, "", null, System.Net.Http.HttpMethod.Get);

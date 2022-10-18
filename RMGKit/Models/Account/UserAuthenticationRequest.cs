@@ -13,6 +13,9 @@ namespace RMGKit.Models.Account
 			this.Password = String.Empty;
 			this.Marketing = false;
 			this.TargetTags = String.Empty;
+			this.FirstName = String.Empty;
+			this.LastName = String.Empty;
+
 		}
 
 
@@ -29,6 +32,10 @@ namespace RMGKit.Models.Account
 		public string? Token { get; set; }
 		[JsonPropertyName("target_tags")]
 		public string? TargetTags { get; set; }
+		[JsonPropertyName("first_name")]
+		public string? FirstName { get; set; }
+		[JsonPropertyName("last_name")]
+		public string? LastName { get; set; }
 		#endregion
 	}
 }
