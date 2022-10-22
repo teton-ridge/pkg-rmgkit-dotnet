@@ -22,7 +22,10 @@ namespace RMGKit.Models.Content
             liveevent = 5,
             livechannel = 6,
             playlist = 7,
-            customitem = 8
+            customitem = 8,
+            article = 9,
+            athlete = 10,
+            standing = 11,
         }
         public enum StreamStatusCode : int
         {
@@ -57,7 +60,7 @@ namespace RMGKit.Models.Content
 
         [JsonPropertyName("stream_date")]
         public DateTime? StreamStart { get; set; }
-
+        //Very dependent on slidedatatype
         [JsonPropertyName("data")]
         public object? Data { get; set; }
 
