@@ -13,6 +13,7 @@ namespace RMGKit.Models.Content
 		{
             NavigationSetName = String.Empty;
             NavigationSetID = 0;
+            ContentStrings = new Dictionary<string, string>();
         }
 
 		#region Properties
@@ -24,6 +25,10 @@ namespace RMGKit.Models.Content
 
         [JsonPropertyName("navigation")]
         public RMGKit.Models.Navigation.Navigation? Navigation { get; set; }
+        [JsonPropertyName("content_strings")]
+        public Dictionary<string,string> ContentStrings { get; set; }
+
+
         [JsonPropertyName("navigation_set_name")]
         public string NavigationSetName { get; set; }
         [JsonPropertyName("navigation_set_id")]

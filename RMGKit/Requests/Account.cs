@@ -16,6 +16,7 @@ namespace RMGKit.Requests
         {
             public static readonly string registerForCheckout = "device/v2/customer/registercheckout";
             public static readonly string authenticateForCheckout = "device/v2/customer/authenticatecheckout";
+            
             public static readonly string authenticateForSummary = "device/v2/customer/authenticateForSummary";
             public static readonly string getEntitlement = "device/v2/customer/getUserEntitlements";
             public static readonly string authenticate = "device/v2/customer/authenticate";
@@ -31,6 +32,9 @@ namespace RMGKit.Requests
             public static readonly string deleteHistoryItem = "device/v2/customer/ViewHistoryDelete";
             public static readonly string clearAllHistory = "device/v2/customer/ViewHistoryClear";
             public static readonly string updateProfile = "device/v2/customer/updateprofile";
+            public static readonly string forgotPassword = "device/v2/customer/ForgotPassword";
+            public static readonly string resetPassword = "device/v2/customer/ResetPassword";
+            
         }
 		public Account() { }
 		/// <summary>
@@ -85,6 +89,32 @@ namespace RMGKit.Requests
                 parameters.Add("jsonbody", param);
             }
             return new Request(Endpoints.authenticateForCheckout, $"", parameters, System.Net.Http.HttpMethod.Post);
+        }
+        /// <summary>
+        /// Builds a user login request and returns purchase options.
+        /// </summary>
+        /// <returns></returns>
+        public static Request ResetPassword(RMGKit.Models.Account.UserAuthenticationRequest param)
+        {
+            var parameters = new Dictionary<string, Object>();
+            if (param != null)
+            {
+                parameters.Add("jsonbody", param);
+            }
+            return new Request(Endpoints.resetPassword, $"", parameters, System.Net.Http.HttpMethod.Post);
+        }
+        /// <summary>
+        /// Builds a user login request and returns purchase options.
+        /// </summary>
+        /// <returns></returns>
+        public static Request LostPassword(RMGKit.Models.Account.IdentityRequest param)
+        {
+            var parameters = new Dictionary<string, Object>();
+            if (param != null)
+            {
+                parameters.Add("jsonbody", param);
+            }
+            return new Request(Endpoints.forgotPassword, $"", parameters, System.Net.Http.HttpMethod.Post);
         }
         /// <summary>
         /// Builds a user login request and returns purchase options.
