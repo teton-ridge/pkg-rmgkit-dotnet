@@ -34,7 +34,7 @@ namespace RMGKit.Requests
             public static readonly string updateProfile = "device/v2/customer/updateprofile";
             public static readonly string forgotPassword = "device/v2/customer/ForgotPassword";
             public static readonly string resetPassword = "device/v2/customer/ResetPassword";
-            
+            public static readonly string cancelRenewal = "device/v2/customer/cancelautorenew";
         }
 		public Account() { }
 		/// <summary>
@@ -168,6 +168,20 @@ namespace RMGKit.Requests
             }
             return new Request(Endpoints.recordInitialView, $"", parameters, System.Net.Http.HttpMethod.Post);
         }
+        /// <summary>EW
+        /// Builds a get media categories request.
+        /// </summary>
+        /// <returns></returns>
+        public static Request CancelRenewal(RMGKit.Models.Account.CancelRenewRequest param)
+        {
+            var parameters = new Dictionary<string, Object>();
+            if (param != null)
+            {
+                parameters.Add("jsonbody", param);
+            }
+            return new Request(Endpoints.cancelRenewal, $"", parameters, System.Net.Http.HttpMethod.Post);
+        }
+
         /// <summary>EW
         /// Builds a get media categories request.
         /// </summary>
