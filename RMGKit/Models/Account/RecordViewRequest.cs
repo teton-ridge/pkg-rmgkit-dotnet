@@ -11,12 +11,17 @@ namespace RMGKit.Models.Account
 		{
 			this.Email = "";
 			this.MediaID = 0;
+			this.ViewID = 0;
 			this.PlayTime = 0;
+			this.IPAddress = "";
+			this.UserAgent = "";
 		}
 
 
 		#region Properties
 
+		[JsonPropertyName("view_id")]
+		public long ViewID { get; set; }
 
 		[JsonPropertyName("play_time")]
 		public long PlayTime { get; set; }
@@ -26,6 +31,10 @@ namespace RMGKit.Models.Account
 
 		[JsonPropertyName("media_id")]
 		public  long MediaID { get; set; }
+		[JsonPropertyName("ip_address")]
+		public string IPAddress { get; set; }
+		[JsonPropertyName("user_agent")]
+		public string UserAgent { get; set; }
 		#endregion
 	}
 }
