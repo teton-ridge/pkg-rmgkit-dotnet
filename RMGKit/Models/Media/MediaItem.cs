@@ -51,8 +51,10 @@ namespace RMGKit.Models.Media
 		[JsonPropertyName("title")]
 		public string? Title { get; set; }
 
+        [JsonPropertyName("display_name")]
+        public string? DisplayName { get; set; }
 
-		[JsonPropertyName("display_title")]
+        [JsonPropertyName("display_title")]
 		public string? DisplayTitle { get; set; }
 
 		[JsonPropertyName("episodic_tag")]
@@ -190,14 +192,21 @@ namespace RMGKit.Models.Media
         }
 		public string? TitleLabel()
 		{
-			if (this.DisplayTitle != null)
+			if (this.DisplayName != null)
 			{
-				if (this.DisplayTitle.Length > 0)
+				if (this.DisplayName.Length > 0)
                 {
-					return this.DisplayTitle;
+					return this.DisplayName;
                 }				
 			}
-			return this.Title;
+            if (this.DisplayTitle != null)
+            {
+                if (this.DisplayTitle.Length > 0)
+                {
+                    return this.DisplayTitle;
+                }
+            }
+            return this.Title;
 		}
 		public string? SeoDuration()
 		{
