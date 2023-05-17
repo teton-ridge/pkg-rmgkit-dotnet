@@ -122,7 +122,7 @@ namespace RMGKit.Models.Media
 				// release Date
 				if (ReleaseDate != null)
                 {
-					ep = ep + "   \u2022   Air Date:" + ReleaseDate.ToString("MMM dd, yyyy");
+					ep = ep + "\u00A0\u00A0 \u2022 \u00A0\u00A0Air Date: " + ReleaseDate.ToString("MMM dd, yyyy");
 				}
 				return ep; 
 			}

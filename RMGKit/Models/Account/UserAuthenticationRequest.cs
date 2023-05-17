@@ -15,8 +15,14 @@ namespace RMGKit.Models.Account
 			this.TargetTags = String.Empty;
 			this.FirstName = String.Empty;
 			this.LastName = String.Empty;
-
-		}
+            this.Address = String.Empty;
+            this.Address2 = String.Empty;
+            this.City = String.Empty;
+            this.State = String.Empty;
+            this.Zip = String.Empty;
+            this.Phone = String.Empty;
+            this.Country = String.Empty;
+        }
 
 
 		#region Properties
@@ -36,6 +42,20 @@ namespace RMGKit.Models.Account
 		public string? FirstName { get; set; }
 		[JsonPropertyName("last_name")]
 		public string? LastName { get; set; }
-		#endregion
-	}
+        [JsonPropertyName("address")]
+        public string? Address { get; set; }
+        [JsonPropertyName("address2")]
+        public string? Address2 { get; set; }
+        [JsonPropertyName("city")]
+        public string? City { get; set; }
+        [JsonPropertyName("state")]
+        public string? State { get; set; }
+        [JsonPropertyName("zip")]
+        public string? Zip { get; set; }
+        [JsonPropertyName("phone")]
+        public string? Phone { get; set; }
+        [JsonPropertyName("country")]
+        public string? Country { get; set; }
+        #endregion
+    }
 }
