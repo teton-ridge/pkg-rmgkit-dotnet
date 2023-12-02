@@ -90,7 +90,10 @@ namespace RMGKit.Models.Media
 		[JsonPropertyName("tags")]
 		public List<string>? Tags { get; set; }
 
-		[JsonPropertyName("ad_tag")]
+        [JsonPropertyName("entitlement_tags")]
+        public List<string>? EntitlementTags { get; set; }
+
+        [JsonPropertyName("ad_tag")]
 		public string? AdTag { get; set; }
 
 		[JsonPropertyName("follow_list_id")]
@@ -99,7 +102,10 @@ namespace RMGKit.Models.Media
 		[JsonPropertyName("progress")]
 		public int Progress { get; set; } = 0;
 
-		public string Episode
+        [JsonPropertyName("geo_rules")]
+        public string? GeoRules { get; set; }
+
+        public string Episode
 		{
 			get {
 				string ep = string.Empty;
@@ -175,7 +181,7 @@ namespace RMGKit.Models.Media
 		/// <returns></returns>
 		public bool SubscriptionIsRequired()
         {		
-				return this.Premium == 1 && this.Tags.Any(t => t.Length > 0);
+				return this.Premium == 1 && this.EntitlementTags.Any(t => t.Length > 0);
         }
 
 		/// <summary>

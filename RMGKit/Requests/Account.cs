@@ -16,7 +16,7 @@ namespace RMGKit.Requests
         {
             public static readonly string registerForCheckout = "device/v2/customer/registercheckout";
             public static readonly string authenticateForCheckout = "device/v2/customer/authenticatecheckout";
-            
+            public static readonly string mailingListAdd = "device/v2/customer/MailingListAdd";
             public static readonly string authenticateForSummary = "device/v2/customer/authenticateForSummary";
             public static readonly string getEntitlement = "device/v2/customer/getUserEntitlements";
             public static readonly string authenticate = "device/v2/customer/authenticate";
@@ -63,7 +63,19 @@ namespace RMGKit.Requests
             }
             return new Request(Endpoints.subscribe, $"", parameters, System.Net.Http.HttpMethod.Post);
         }
-
+        /// <summary>
+        /// Builds a subscribe request.
+        /// </summary>
+        /// <returns></returns>
+        public static Request AddToMailingList(RMGKit.Models.Account.MailingListRequest param)
+        {
+            var parameters = new Dictionary<string, Object>();
+            if (param != null)
+            {
+                parameters.Add("jsonbody", param);
+            }
+            return new Request(Endpoints.mailingListAdd, $"", parameters, System.Net.Http.HttpMethod.Post);
+        }
         /// <summary>
         /// Builds a user login request and does not return purchase options.
         /// </summary>

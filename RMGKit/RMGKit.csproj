@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Modals\Standibng\" />
+    <None Remove="Modals\Standing\" />
     <None Remove="Request\" />
     <None Remove="Flurl.Http" />
     <None Remove="Models\Common\" />
