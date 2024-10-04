@@ -80,7 +80,12 @@ namespace RMGKit
 			_parameters.TryAdd("username", caller.UserName);
 			_parameters.TryAdd("usertoken", caller.UserToken);
 			_parameters.TryAdd("devicetoken", caller.DeviceToken);
-		}
+            _parameters.TryAdd("sip", caller.IPAddress);
+
+
+
+
+        }
 		#endregion
 	}
 }

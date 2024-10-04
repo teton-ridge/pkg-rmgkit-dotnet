@@ -7,10 +7,15 @@ namespace RMGKit.Models.Account
 		public IdentityRequest()
 		{
 			this.Token = String.Empty;
-		}
+
+            this.Source = String.Empty;
+        }
 		#region Properties
 		[JsonPropertyName("token")]
 		public string Token { get; set; }
-		#endregion
-	}
+
+
+        public string Source { get; set; }
+        #endregion
+    }
 }

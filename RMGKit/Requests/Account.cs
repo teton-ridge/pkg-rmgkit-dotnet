@@ -35,6 +35,8 @@ namespace RMGKit.Requests
             public static readonly string forgotPassword = "device/v2/customer/ForgotPassword";
             public static readonly string resetPassword = "device/v2/customer/ResetPassword";
             public static readonly string cancelRenewal = "device/v2/customer/cancelautorenew";
+            public static readonly string offerAuthenticate = "device/v2/customer/authvouchertoken";
+            public static readonly string offerapply= "device/v2/customer/authvouchertokenapply";
         }
 		public Account() { }
 		/// <summary>
@@ -140,6 +142,14 @@ namespace RMGKit.Requests
                 parameters.Add("jsonbody", param);
             }
             return new Request(Endpoints.authenticateForSummary, $"", parameters, System.Net.Http.HttpMethod.Post);
+        }
+        public static Request AuthenticateOffer(string param)
+        {
+            return new Request(Endpoints.offerAuthenticate, "?token=" + param, null, System.Net.Http.HttpMethod.Get);
+        }
+        public static Request ApplyPromoOffer(string param)
+        {
+            return new Request(Endpoints.offerapply, "?token=" + param, null, System.Net.Http.HttpMethod.Get);
         }
         /// <summary>
         /// Validates a voucher code, pass through call.

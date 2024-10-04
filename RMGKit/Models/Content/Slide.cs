@@ -46,6 +46,11 @@ namespace RMGKit.Models.Content
         [JsonPropertyName("title")]
         public string? Title { get; set; }
 
+        [JsonPropertyName("event_title")]
+        public string? EventTitle { get; set; }
+        
+
+
         [JsonPropertyName("summary")]
         public string Summary { get; set; } = "";
 

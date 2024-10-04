@@ -62,6 +62,9 @@ namespace RMGKit.Models.Content
         [JsonPropertyName("block_type")]
         public BlockType Type { get; set; }
 
+        [JsonPropertyName("block_name")]
+        public string BlockName { get; set; } = "";
+
         [JsonPropertyName("block_data_type")]
         public BlockDataType DataType { get; set; }
 

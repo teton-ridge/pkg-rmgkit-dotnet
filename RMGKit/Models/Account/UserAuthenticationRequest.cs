@@ -13,15 +13,16 @@ namespace RMGKit.Models.Account
 			this.Password = String.Empty;
 			this.Marketing = false;
 			this.TargetTags = String.Empty;
-			this.FirstName = String.Empty;
-			this.LastName = String.Empty;
-            this.Address = String.Empty;
-            this.Address2 = String.Empty;
-            this.City = String.Empty;
-            this.State = String.Empty;
-            this.Zip = String.Empty;
-            this.Phone = String.Empty;
-            this.Country = String.Empty;
+			this.FirstName = "";
+			this.LastName = "";
+            this.Address = "";
+            this.Address2 = "";
+            this.City = "";
+            this.State = "";
+            this.Zip = "";
+            this.Phone = "";
+            this.Country = "";
+            this.FormToken = "";
         }
 
 
@@ -56,6 +57,8 @@ namespace RMGKit.Models.Account
         public string? Phone { get; set; }
         [JsonPropertyName("country")]
         public string? Country { get; set; }
+        [JsonPropertyName("form_token")]
+        public string? FormToken { get; set; }
         #endregion
     }
 }

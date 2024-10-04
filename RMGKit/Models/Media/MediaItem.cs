@@ -2,6 +2,7 @@
 using System.Text.Json.Serialization;
 using System.Collections.Generic;
 using System.Linq;
+using System.Collections.Specialized;
 namespace RMGKit.Models.Media
 {
 	/// <summary>
@@ -51,6 +52,10 @@ namespace RMGKit.Models.Media
 		[JsonPropertyName("title")]
 		public string? Title { get; set; }
 
+        [JsonPropertyName("event_title")]
+        public string? EventTitle { get; set; }
+        
+
         [JsonPropertyName("display_name")]
         public string? DisplayName { get; set; }
 
@@ -96,7 +101,10 @@ namespace RMGKit.Models.Media
         [JsonPropertyName("ad_tag")]
 		public string? AdTag { get; set; }
 
-		[JsonPropertyName("follow_list_id")]
+		[JsonPropertyName("acct_ref")]
+		public string? AcctRef { get; set; } = "";
+
+        [JsonPropertyName("follow_list_id")]
 		public int FollowListID { get; set; } = 0;
 
 		[JsonPropertyName("progress")]
@@ -133,8 +141,7 @@ namespace RMGKit.Models.Media
 				return ep; 
 			}
 		}
-
-		public int StartTime { get; set; } = 0;
+        public int StartTime { get; set; } = 0;
 
 		[JsonPropertyName("is_following")]
 		public int IsFollowing { get; set; }
@@ -166,11 +173,20 @@ namespace RMGKit.Models.Media
 			return this.Source==SourceType.OTTLive;
         }
 
-		/// <summary>
-		/// Indicates if the media item has an ad tag.
-		/// </summary>
-		/// <returns></returns>
-		public bool HasAdTag()
+        /// <summary>
+        /// Indicates if the media item is a live channel
+        /// </summary>
+        /// <returns></returns>
+        public bool Is24X7()
+        {
+			if (Tags == null) return false;
+            return Tags.Contains("24-7");
+        }
+        /// <summary>
+        /// Indicates if the media item has an ad tag.
+        /// </summary>
+        /// <returns></returns>
+        public bool HasAdTag()
         {
 			return !String.IsNullOrEmpty(this.AdTag);
         }

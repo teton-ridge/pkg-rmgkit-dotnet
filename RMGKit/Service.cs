@@ -19,7 +19,9 @@ namespace RMGKit
 		private string applicationVersion = "";
 		private string? currentUser;
 		private string? currentDeviceToken;
-		private Dictionary<string, string>? endpointVersionOverrides = null; 
+        private string? sip;
+        private string? country;
+        private Dictionary<string, string>? endpointVersionOverrides = null; 
 
 		public Service() {
 
@@ -44,7 +46,9 @@ namespace RMGKit
 			string appVersion,
 			string? currentUser = null,
 			string? currentDeviceToken = null,
-			Dictionary<string, string>? endpointOverrides = null)
+            string? sip = null,
+            string? country = null,
+            Dictionary<string, string>? endpointOverrides = null)
 		{
 			this.apiUrl = apiUrl;
 			this.authenticationCode = authCode;
@@ -54,7 +58,9 @@ namespace RMGKit
 			this.currentUser = currentUser;
 			this.currentDeviceToken = currentDeviceToken;
 			this.endpointVersionOverrides = endpointOverrides;
-		}
+			this.sip = sip;
+			this.country = country;
+        }
 
 		/// <summary>
 		/// Shared singleton instance of api service.
@@ -146,8 +152,10 @@ namespace RMGKit
 				{ "X-App-Ver", this.applicationVersion },
 				{ "X-UserName", (this.currentUser ?? "") },
 				{ "X-UserToken", "" },
-				{ "X-Device", (this.currentDeviceToken ?? "") }
-			};
+				{ "X-Device", (this.currentDeviceToken ?? "") },
+				{ "X-Sip", (this.sip ?? "") },
+				{ "X-Country", (this.country ?? "") }
+            };
         }
 
 		private string BuildRequestURL(string endpoint)
@@ -233,7 +241,17 @@ namespace RMGKit
 					var value = _params[key];
 					restRequest.AddOrUpdateHeader("X-Device", value.ToString());
 				}
-			}
+                if (key == "sip")
+                {
+                    var value = _params[key];
+                    restRequest.AddOrUpdateHeader("X-Sip", value.ToString());
+                }
+                if (key == "country")
+                {
+                    var value = _params[key];
+                    restRequest.AddOrUpdateHeader("X-Country", value.ToString());
+                }
+            }
 			return await client.GetAsync<T?>(restRequest);
 		}
 
@@ -279,7 +297,17 @@ namespace RMGKit
 					var value = _params[key];
 					restRequest.AddOrUpdateHeader("X-Device", value.ToString());
 				}
-			} 
+                if (key == "sip")
+                {
+                    var value = _params[key];
+                    restRequest.AddOrUpdateHeader("X-Sip", value.ToString());
+                }
+                if (key == "country")
+                {
+                    var value = _params[key];
+                    restRequest.AddOrUpdateHeader("X-Country", value.ToString());
+                }
+            } 
 			return await client.PostAsync<T?>(restRequest);
 		}
 
