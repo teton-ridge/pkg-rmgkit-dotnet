@@ -15,7 +15,12 @@ namespace RMGKit.Requests
         public static class Endpoints
         {
             public static readonly string registerForCheckout = "device/v2/customer/registercheckout";
+            public static readonly string registerWithVerify = "device/v2/customer/registerwithverify";
+            public static readonly string verifyEmailAddress = "device/v2/customer/verifyemailaddress";
+            public static readonly string resendVerificationEmail = "device/v2/customer/resendverificationemail";
+            
             public static readonly string authenticateForCheckout = "device/v2/customer/authenticatecheckout";
+            public static readonly string checkRegistration = "device/v2/customer/checkregistration";
             public static readonly string mailingListAdd = "device/v2/customer/MailingListAdd";
             public static readonly string authenticateForSummary = "device/v2/customer/authenticateForSummary";
             public static readonly string getEntitlement = "device/v2/customer/getUserEntitlements";
@@ -52,6 +57,15 @@ namespace RMGKit.Requests
             }
 			return new Request(Endpoints.registerForCheckout, $"", parameters, System.Net.Http.HttpMethod.Post);
 		}
+        public static Request RegisterWithVerify(RMGKit.Models.Account.UserAuthenticationRequest param)
+        {
+            var parameters = new Dictionary<string, Object>();
+            if (param != null)
+            {
+                parameters.Add("jsonbody", param);
+            }
+            return new Request(Endpoints.registerWithVerify, $"", parameters, System.Net.Http.HttpMethod.Post);
+        }
         /// <summary>
         /// Builds a subscribe request.
         /// </summary>
@@ -91,6 +105,21 @@ namespace RMGKit.Requests
             }
             return new Request(Endpoints.authenticate, $"", parameters, System.Net.Http.HttpMethod.Post);
         }
+
+        
+        /// <summary>
+        /// Queues a new email verification send request
+        /// </summary>
+        /// <returns></returns>
+        public static Request ResendVerificationEmail(RMGKit.Models.Account.UserAuthenticationRequest param)
+        {
+            var parameters = new Dictionary<string, Object>();
+            if (param != null)
+            {
+                parameters.Add("jsonbody", param);
+            }
+            return new Request(Endpoints.resendVerificationEmail, $"", parameters, System.Net.Http.HttpMethod.Post);
+        }
         /// <summary>
         /// Builds a user login request and returns purchase options.
         /// </summary>
@@ -104,6 +133,22 @@ namespace RMGKit.Requests
             }
             return new Request(Endpoints.authenticateForCheckout, $"", parameters, System.Net.Http.HttpMethod.Post);
         }
+        /// <summary>
+        /// checks if email is already registered.
+        /// </summary>
+        /// <returns></returns>
+        public static Request CheckRegistration(RMGKit.Models.Account.UserAuthenticationRequest param)
+        {
+            var parameters = new Dictionary<string, Object>();
+            if (param != null)
+            {
+                parameters.Add("jsonbody", param);
+            }
+            return new Request(Endpoints.checkRegistration, $"", parameters, System.Net.Http.HttpMethod.Post);
+        }
+        
+
+
         /// <summary>
         /// Builds a user login request and returns purchase options.
         /// </summary>
@@ -155,7 +200,20 @@ namespace RMGKit.Requests
         /// Validates a voucher code, pass through call.
         /// </summary>
         /// <returns></returns>
-        public static Request ValidateVoucher (RMGKit.Models.Account.VoucherRequest param)
+        public static Request VerifyEmailAddress(RMGKit.Models.Account.EmailVerificationRequest param)
+        {
+            var parameters = new Dictionary<string, Object>();
+            if (param != null)
+            {
+                parameters.Add("jsonbody", param);
+            }
+            return new Request(Endpoints.verifyEmailAddress, $"", parameters, System.Net.Http.HttpMethod.Post);
+        }
+        /// <summary>
+        /// Validates a voucher code, pass through call.
+        /// </summary>
+        /// <returns></returns>
+        public static Request ValidateVoucher(RMGKit.Models.Account.VoucherRequest param)
         {
             var parameters = new Dictionary<string, Object>();
             if (param != null)

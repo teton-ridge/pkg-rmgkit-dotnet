@@ -87,6 +87,11 @@ namespace RMGKit.Models.Content
         [JsonPropertyName("use_personalization")]
         public int UsePersonalization { get; set; }
 
+        [JsonPropertyName("show_when")]
+        public string ShowWhen { get; set; } = "";
+
+        [JsonPropertyName("hide_when")]
+        public string HideWhen { get; set; } = "";
         #endregion
 
         #region Methods
