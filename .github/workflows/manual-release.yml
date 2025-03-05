@@ -57,7 +57,18 @@ jobs:
         
     - name: Update project version
       run: |
-        sed -i "s|<TargetFramework>net8.0</TargetFramework>|<TargetFramework>net8.0</TargetFramework>\n    <Version>${{ env.VERSION }}</Version>\n    <Authors>TCC</Authors>\n    <Company>TCC</Company>\n    <Description>RMGKit library for TCC applications</Description>\n    <PackageId>TCC.RMGKit</PackageId>|" RMGKit/RMGKit.csproj
+        # Check if Version element already exists
+        if grep -q "<Version>" RMGKit/RMGKit.csproj; then
+          # Update existing Version element
+          sed -i "s|<Version>.*</Version>|<Version>${{ env.VERSION }}</Version>|" RMGKit/RMGKit.csproj
+        else
+          # Add Version element if it doesn't exist
+          sed -i "s|<TargetFramework>net8.0</TargetFramework>|<TargetFramework>net8.0</TargetFramework>\n    <Version>${{ env.VERSION }}</Version>\n    <Authors>TCC</Authors>\n    <Company>TCC</Company>\n    <Description>RMGKit library for TCC applications</Description>\n    <PackageId>TCC.RMGKit</PackageId>|" RMGKit/RMGKit.csproj
+        fi
+        
+        # Display the updated project file for verification
+        echo "Updated project file:"
+        cat RMGKit/RMGKit.csproj
         
     - name: Restore dependencies
       run: dotnet restore RMGKit/RMGKit.csproj
@@ -68,6 +79,22 @@ jobs:
     - name: Pack
       run: dotnet pack RMGKit/RMGKit.csproj --configuration Release --no-build --output nupkgs
       
+    - name: Verify package version
+      run: |
+        # Check the actual version in the generated nupkg file
+        NUPKG_FILE=$(ls nupkgs/*.nupkg)
+        echo "Generated package: $NUPKG_FILE"
+        
+        # Extract the version from the filename
+        PACKAGE_VERSION=$(echo $NUPKG_FILE | grep -oP 'TCC\.RMGKit\.\K[\d\.]+(?=\.nupkg)')
+        echo "Package version: $PACKAGE_VERSION"
+        
+        # Verify it matches the expected version
+        if [ "$PACKAGE_VERSION" != "${{ env.VERSION }}" ]; then
+          echo "ERROR: Package version ($PACKAGE_VERSION) does not match expected version (${{ env.VERSION }})"
+          exit 1
+        fi
+        
     - name: Setup NuGet authentication
       run: |
         # Remove the source if it already exists
@@ -84,7 +111,7 @@ jobs:
         sleep 30  # Give GitHub Packages some time to process the upload
         
         # List the packages to verify
-        echo "Listing available packages:"
+        echo "Listing available sources:"
         dotnet nuget list source
         
         echo "Package TCC.RMGKit@${{ env.VERSION }} has been published!"
