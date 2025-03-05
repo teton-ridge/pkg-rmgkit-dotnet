@@ -1,11 +1,7 @@
-name: Publish Release NuGet Package
+name: Manual Release
 
 on:
-  push:
-    branches: [ main ]
-    paths:
-      - 'RMGKit/**'
-  workflow_dispatch:  # Allow manual triggering
+  workflow_dispatch:  # Allow manual triggering only
 
 jobs:
   build-and-publish:

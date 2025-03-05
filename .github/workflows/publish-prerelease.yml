@@ -1,4 +1,4 @@
-name: Publish Pre-Release NuGet Package
+name: Publish Pre-release NuGet Package
 
 on:
   pull_request:
@@ -13,6 +13,7 @@ jobs:
     permissions:
       packages: write
       contents: read
+      pull-requests: write  # Needed to comment on PRs
     
     steps:
     - uses: actions/checkout@v3

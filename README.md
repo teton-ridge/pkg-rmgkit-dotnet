@@ -76,4 +76,13 @@ The package follows this versioning strategy:
    - The patch version is automatically incremented based on the latest Git tag.
    - A new Git tag is created for each release.
 
-You can also manually trigger either workflow from the GitHub Actions tab. 
+### Manual Release
+
+If you need to publish a new release without making changes to the codebase, you can use the "Manual Release" workflow:
+
+1. Go to the "Actions" tab in the GitHub repository
+2. Select the "Manual Release" workflow
+3. Click "Run workflow" on the main branch
+4. This will create a new release with an incremented patch version
+
+This is useful for re-publishing the package or creating a new release after fixing workflow issues. 
