@@ -74,6 +74,9 @@ jobs:
       
     - name: Setup NuGet authentication
       run: |
+        # Remove the source if it already exists
+        dotnet nuget remove source github || true
+        # Add the source with authentication
         dotnet nuget add source --username teton-ridge --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/teton-ridge/index.json"
         
     - name: Publish to GitHub Packages
