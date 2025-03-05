@@ -5,6 +5,14 @@
     <Nullable>enable</Nullable>
     <SynchReleaseVersion>false</SynchReleaseVersion>
     <OutputType>Library</OutputType>
+    <Version>1.0.0</Version>
+    <Authors>TCC</Authors>
+    <Company>TCC</Company>
+    <Description>RMGKit library for TCC applications</Description>
+    <PackageId>TCC.RMGKit</PackageId>
+    <RepositoryUrl>https://github.com/teton-ridge/pkg-rmgkit-dotnet</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>

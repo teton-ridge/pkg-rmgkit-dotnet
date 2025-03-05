@@ -1,0 +1,64 @@
+name: Publish Pre-Release NuGet Package
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'RMGKit/**'
+  workflow_dispatch:  # Allow manual triggering
+
+jobs:
+  build-and-publish-prerelease:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 8.0.x
+        
+    - name: Set pre-release version
+      id: set-version
+      run: |
+        SHORT_SHA=$(git rev-parse --short HEAD)
+        PR_NUMBER=${{ github.event.pull_request.number }}
+        VERSION="1.0.0-pr$PR_NUMBER-$SHORT_SHA"
+        echo "VERSION=$VERSION" >> $GITHUB_ENV
+        echo "Set package version to $VERSION"
+        
+    - name: Update project version
+      run: |
+        sed -i "s|<TargetFramework>net8.0</TargetFramework>|<TargetFramework>net8.0</TargetFramework>\n    <Version>${{ env.VERSION }}</Version>\n    <Authors>TCC</Authors>\n    <Company>TCC</Company>\n    <Description>RMGKit library for TCC applications</Description>\n    <PackageId>TCC.RMGKit</PackageId>|" RMGKit/RMGKit.csproj
+        
+    - name: Restore dependencies
+      run: dotnet restore RMGKit/RMGKit.csproj
+      
+    - name: Build
+      run: dotnet build RMGKit/RMGKit.csproj --configuration Release --no-restore
+      
+    - name: Pack
+      run: dotnet pack RMGKit/RMGKit.csproj --configuration Release --no-build --output nupkgs
+      
+    - name: Setup NuGet authentication
+      run: |
+        dotnet nuget add source --username teton-ridge --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/teton-ridge/index.json"
+        
+    - name: Publish to GitHub Packages
+      run: dotnet nuget push nupkgs/*.nupkg --source github --api-key ${{ secrets.GITHUB_TOKEN }}
+      
+    - name: Comment on PR
+      uses: actions/github-script@v6
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: `📦 Pre-release package published: \`TCC.RMGKit@${{ env.VERSION }}\``
+          }) 
