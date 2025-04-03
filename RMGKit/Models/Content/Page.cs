@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using System.Xml.Serialization;
 
 namespace RMGKit.Models.Content
 {
@@ -25,7 +26,9 @@ namespace RMGKit.Models.Content
 
         [JsonPropertyName("navigation")]
         public RMGKit.Models.Navigation.Navigation? Navigation { get; set; }
+        
         [JsonPropertyName("content_strings")]
+        [XmlIgnore]
         public Dictionary<string,string> ContentStrings { get; set; }
 
 
