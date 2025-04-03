@@ -57,30 +57,28 @@ using RMGKit.Models;
 ## Development
 
 ### Git Configuration for Tag Management
-This repository uses CI/CD to manage tags. Developers should **never manually push tags**.
+This repository uses CI/CD to manage tags. Developers should **never manually push or pull tags**.
 
-To prevent accidental tag pushing, run this setup script in your local repository:
+To prevent accidental tag handling, run this setup script in your local repository:
 
 ```bash
 ./setup-git-config.sh
 ```
 
-If you're still encountering tag-related errors when pushing, use one of these commands:
+After running this script, you can use Git normally:
+- `git push` will work without needing any extra flags
+- For pulls, you should use `git pull --no-tags`
 
-```bash
-# Option 1: Push without tags (preferred)
-git push --no-tags
-
-# Option 2: Push a specific branch without tags
-git push origin your-branch-name --no-tags
-
-# Option 3: Push current branch HEAD without tags
-git push origin HEAD --no-tags
-```
+The script configures Git to:
+1. Never fetch tags automatically
+2. Never push tags automatically
+3. Create a Git alias that makes the standard `git push` command always use `--no-tags`
 
 For a permanent global solution (affects all repositories), you can run:
 ```bash
 git config --global push.followTags false
+git config --global fetch.tags false
+git config --global alias.push 'push --no-tags'
 ```
 
 ### Building the Package Locally
