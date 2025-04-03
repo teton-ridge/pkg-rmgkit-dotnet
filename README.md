@@ -29,7 +29,7 @@ Create a `NuGet.config` file in your project root directory:
 
 Replace `YOUR_GITHUB_USERNAME` with your GitHub username and `YOUR_GITHUB_PAT` with a GitHub Personal Access Token that has the `read:packages` scope.
 
-### 2. Add the Package Reference
+### 2. Add the package reference
 
 Add the package reference to your project file:
 
