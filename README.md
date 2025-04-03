@@ -8,7 +8,7 @@ To use this package in your .NET projects, follow these steps:
 
 ### 1. Authenticate with GitHub Packages
 
-Create a `NuGet.config` file in your project root or solution directory:
+Create a `NuGet.config` file in your project root directory:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
