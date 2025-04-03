@@ -56,6 +56,20 @@ using RMGKit.Models;
 
 ## Development
 
+### Git Configuration
+When working with this repository, run the setup script to configure Git:
+
+```bash
+./setup-git-config.sh
+```
+
+This will prevent accidental pushing of tags. All tags in this repository are managed by CI/CD pipelines only.
+
+**Important**: Never manually push tags to this repository. If you encounter tag-related errors when pushing, use:
+```bash
+git push origin your-branch-name --no-tags
+```
+
 ### Building the Package Locally
 
 ```bash

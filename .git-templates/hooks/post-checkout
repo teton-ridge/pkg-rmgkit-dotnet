@@ -1,0 +1,3 @@
+#!/bin/sh
+# Set push.followTags to false for this repository
+git config push.followTags false 
