@@ -18,5 +18,4 @@ git config --local alias.pull 'pull --no-tags'
 echo "Git configuration complete in the local repository."
 echo "Tags will not be pushed or fetched by default. Tags are managed by CI/CD."
 echo ""
-echo "✅ You can now use 'git push' and 'git pull' normally - they will automatically use --no-tags"
-echo "✅ NOTE: The 'Sync Changes' button in Cursor may still have issues - use terminal commands instead" 
+echo "✅ You can now use 'git push' and 'git pull' normally - they will automatically use --no-tags" 
