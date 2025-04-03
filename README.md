@@ -67,18 +67,19 @@ To prevent accidental tag handling, run this setup script in your local reposito
 
 After running this script, you can use Git normally:
 - `git push` will work without needing any extra flags
-- For pulls, you should use `git pull --no-tags`
+- `git pull` will work without needing any extra flags
 
 The script configures Git to:
 1. Never fetch tags automatically
 2. Never push tags automatically
-3. Create a Git alias that makes the standard `git push` command always use `--no-tags`
+3. Create Git aliases that make the standard `git push` and `git pull` commands always use `--no-tags`
 
 For a permanent global solution (affects all repositories), you can run:
 ```bash
 git config --global push.followTags false
 git config --global fetch.tags false
 git config --global alias.push 'push --no-tags'
+git config --global alias.pull 'pull --no-tags'
 ```
 
 ### Building the Package Locally
