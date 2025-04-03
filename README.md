@@ -56,18 +56,31 @@ using RMGKit.Models;
 
 ## Development
 
-### Git Configuration
-When working with this repository, run the setup script to configure Git:
+### Git Configuration for Tag Management
+This repository uses CI/CD to manage tags. Developers should **never manually push tags**.
+
+To prevent accidental tag pushing, run this setup script in your local repository:
 
 ```bash
 ./setup-git-config.sh
 ```
 
-This will prevent accidental pushing of tags. All tags in this repository are managed by CI/CD pipelines only.
+If you're still encountering tag-related errors when pushing, use one of these commands:
 
-**Important**: Never manually push tags to this repository. If you encounter tag-related errors when pushing, use:
 ```bash
+# Option 1: Push without tags (preferred)
+git push --no-tags
+
+# Option 2: Push a specific branch without tags
 git push origin your-branch-name --no-tags
+
+# Option 3: Push current branch HEAD without tags
+git push origin HEAD --no-tags
+```
+
+For a permanent global solution (affects all repositories), you can run:
+```bash
+git config --global push.followTags false
 ```
 
 ### Building the Package Locally
