@@ -63,7 +63,7 @@ jobs:
         echo "Generated package: $NUPKG_FILE"
         
         # Extract the version from the filename
-        PACKAGE_VERSION=$(echo $NUPKG_FILE | grep -oP 'TCC\.RMGKit\.\K[^\.]+(?=\.nupkg)')
+        PACKAGE_VERSION=$(echo $NUPKG_FILE | grep -oP 'TCC\.RMGKit\.\K.*(?=\.nupkg)')
         echo "Package version: $PACKAGE_VERSION"
         
         # Verify it contains the PR number and SHA
