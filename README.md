@@ -8,7 +8,7 @@ To use this package in your .NET projects, follow these steps:
 
 ### 1. Authenticate with GitHub Packages
 
-Create a `NuGet.config` file in your project root or solution directory:
+Create a `NuGet.config` file in your project root directory:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -29,7 +29,7 @@ Create a `NuGet.config` file in your project root or solution directory:
 
 Replace `YOUR_GITHUB_USERNAME` with your GitHub username and `YOUR_GITHUB_PAT` with a GitHub Personal Access Token that has the `read:packages` scope.
 
-### 2. Add the Package Reference
+### 2. Add the package reference
 
 Add the package reference to your project file:
 
@@ -55,6 +55,32 @@ using RMGKit.Models;
 ```
 
 ## Development
+
+### Git Configuration for Tag Management
+This repository uses CI/CD to manage tags. Developers should **never manually push or pull tags**.
+
+To prevent accidental tag handling, run this setup script in your local repository:
+
+```bash
+./setup-git-config.sh
+```
+
+After running this script, you can use Git normally:
+- `git push` will work without needing any extra flags
+- `git pull` will work without needing any extra flags
+
+The script configures Git to:
+1. Never fetch tags automatically
+2. Never push tags automatically
+3. Create Git aliases that make the standard `git push` and `git pull` commands always use `--no-tags`
+
+For a permanent global solution (affects all repositories), you can run:
+```bash
+git config --global push.followTags false
+git config --global fetch.tags false
+git config --global alias.push 'push --no-tags'
+git config --global alias.pull 'pull --no-tags'
+```
 
 ### Building the Package Locally
 
