@@ -217,7 +217,7 @@ namespace RMGKit
 
 			var options = new RestClientOptions(_url)
 			{
-				Timeout = 10000, // 10 seconds timeout
+				Timeout = TimeSpan.FromSeconds(10), // 10 seconds timeout
 				ThrowOnAnyError = false,
 			};
 			var client = new RestClient(options);
@@ -276,7 +276,7 @@ namespace RMGKit
 
 			var options = new RestClientOptions(_url)
 			{
-				Timeout = 10000, // 10 seconds timeout
+				Timeout = TimeSpan.FromSeconds(10), // 10 seconds timeout
 				ThrowOnAnyError = false,
 			};
 			var client = new RestClient(options);
