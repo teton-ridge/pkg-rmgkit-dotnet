@@ -215,7 +215,12 @@ namespace RMGKit
 			Dictionary<string, Object> _params = request.Parameters ?? new Dictionary<string, Object>();
 			Dictionary<string, string> _headers = DefaultRequestHeaders();
 
-			var client = new RestClient();
+			var options = new RestClientOptions(_url)
+			{
+				Timeout = TimeSpan.FromSeconds(10), // 10 seconds timeout
+				ThrowOnAnyError = false,
+			};
+			var client = new RestClient(options);
 			var restRequest = new RestSharp.RestRequest(_url, Method.Get);
 
 			restRequest.AddHeaders(_headers);
@@ -252,7 +257,14 @@ namespace RMGKit
                     restRequest.AddOrUpdateHeader("X-Country", value.ToString());
                 }
             }
-			return await client.GetAsync<T?>(restRequest);
+			try {
+				return await client.GetAsync<T?>(restRequest);
+			} catch (System.Net.Http.HttpRequestException ex) when (ex.Message.Contains("GatewayTimeout")) {
+				// Log the timeout for debugging purposes
+				Console.WriteLine($"Gateway timeout occurred when calling {_url}");
+				// Return null or throw a more specific exception
+				return null;
+			}
 		}
 
 		// perform a get request
@@ -262,7 +274,12 @@ namespace RMGKit
 			Dictionary<string, Object> _params = request.Parameters ?? new Dictionary<string, Object>();
 			Dictionary<string, string> _headers = DefaultRequestHeaders();
 
-			var client = new RestClient();
+			var options = new RestClientOptions(_url)
+			{
+				Timeout = TimeSpan.FromSeconds(10), // 10 seconds timeout
+				ThrowOnAnyError = false,
+			};
+			var client = new RestClient(options);
 			var restRequest = new RestSharp.RestRequest(_url, Method.Post);
 			 
 			restRequest.AddHeaders(_headers);
@@ -308,7 +325,14 @@ namespace RMGKit
                     restRequest.AddOrUpdateHeader("X-Country", value.ToString());
                 }
             } 
-			return await client.PostAsync<T?>(restRequest);
+			try {
+				return await client.PostAsync<T?>(restRequest);
+			} catch (System.Net.Http.HttpRequestException ex) when (ex.Message.Contains("GatewayTimeout")) {
+				// Log the timeout for debugging purposes
+				Console.WriteLine($"Gateway timeout occurred when calling {_url}");
+				// Return null or throw a more specific exception
+				return null;
+			}
 		}
 
         #endregion
